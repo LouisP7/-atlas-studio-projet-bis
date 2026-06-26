@@ -133,6 +133,15 @@ section h2{
   color:var(--navy);
 }
 
+/* Scroll color-fill text effect */
+.scroll-fill-text .word{
+  color:var(--border);
+  transition:color .35s ease;
+}
+.scroll-fill-text .word.lit{
+  color:var(--navy);
+}
+
 /* Spotlight feature sections */
 .spotlight{padding:100px 0;text-align:center;border-top:1px solid var(--border)}
 .spotlight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:60px}

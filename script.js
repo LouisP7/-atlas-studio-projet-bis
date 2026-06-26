@@ -32,3 +32,21 @@ const observer = new IntersectionObserver((entries) => {
 
 revealTargets.forEach(el => observer.observe(el));
 spotlightSections.forEach(el => observer.observe(el));
+
+const scrollFillTitle = document.getElementById('testimonialsTitle');
+if (scrollFillTitle) {
+  const words = scrollFillTitle.querySelectorAll('.word');
+  const updateScrollFill = () => {
+    const rect = scrollFillTitle.getBoundingClientRect();
+    const vh = window.innerHeight;
+    const start = vh * 0.85;
+    const end = vh * 0.35;
+    const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+    const litCount = Math.round(progress * words.length);
+    words.forEach((word, i) => {
+      word.classList.toggle('lit', i < litCount);
+    });
+  };
+  window.addEventListener('scroll', updateScrollFill);
+  updateScrollFill();
+}
