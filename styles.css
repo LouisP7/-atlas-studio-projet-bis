@@ -38,8 +38,9 @@ ul{list-style:none}
   display:flex;align-items:center;justify-content:space-between;
   height:76px;
 }
-.logo{font-size:20px;font-weight:800;letter-spacing:-0.02em}
+.logo{font-size:20px;font-weight:800;letter-spacing:-0.02em;display:flex;align-items:center}
 .logo span{color:var(--accent-light)}
+.logo-img{height:28px;width:auto;display:block}
 .nav{display:flex;align-items:center;gap:32px;font-size:15px;font-weight:500;color:var(--text-dim)}
 .nav a:hover{color:var(--text)}
 .nav-cta{
@@ -183,6 +184,18 @@ section h2{
 .work-card p{color:rgba(255,255,255,0.85);font-size:14px}
 
 /* Testimonial */
+/* Trailer */
+.trailer{padding:120px 0;text-align:center}
+.trailer h2{margin:0 auto 40px;}
+.trailer-video{
+  max-width:900px;margin:0 auto;
+  border-radius:var(--radius);
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:var(--surface);
+}
+.trailer-video video{width:100%;display:block;aspect-ratio:16/9;background:#000}
+
 .testimonial{padding:100px 0;background:var(--bg-soft)}
 .testimonial-inner{max-width:700px;text-align:center}
 .quote{font-size:22px;font-weight:600;line-height:1.5;margin-bottom:24px}
