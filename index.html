@@ -18,7 +18,8 @@
     <a href="#" class="logo"><img src="assets/logo-crop.png" alt="Atlas Studio" class="logo-img"></a>
     <nav class="nav" id="nav">
       <a href="#services">Services</a>
-      <a href="#contact" class="nav-cta">Démarrer un projet</a>
+      <a href="#temoignages">Avis</a>
+      <a href="#contact" class="nav-cta">Démarrer un projet <span class="arrow">↗</span></a>
     </nav>
     <button class="burger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -29,39 +30,70 @@
 <main>
 
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-orb one"></div>
-    <div class="hero-orb two"></div>
+    <div class="hero-rays"></div>
+    <div class="hero-glow"></div>
     <div class="container hero-inner">
-      <p class="eyebrow">Sites web pour professions libérales</p>
+      <p class="eyebrow"><span class="dot"></span> Places limitées ce mois-ci</p>
       <h1>Un site web à la hauteur de <span class="highlight">votre réputation.</span></h1>
       <p class="hero-text">Atlas Studio conçoit des sites sobres et soignés pour les avocats, architectes et cabinets qui veulent inspirer confiance dès le premier regard.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Démarrer un projet</a>
-        <a href="#contact" class="btn btn-ghost">Demander un devis</a>
+        <a href="#contact" class="btn btn-primary">Démarrer un projet <span class="arrow">↗</span></a>
+        <a href="#services" class="btn btn-ghost">Nos services <span class="arrow">↗</span></a>
       </div>
     </div>
   </section>
 
-  <section class="services" id="services">
+  <section class="spotlight" id="services">
+    <div class="container spotlight-inner">
+      <div class="spotlight-visual left"></div>
+      <div class="spotlight-content">
+        <span class="spotlight-num">01</span>
+        <h3>Création sur-mesure</h3>
+        <p>Un site pensé pour votre image, votre clientèle et la confiance qu'elle vous accorde.</p>
+        <a href="#contact" class="btn btn-primary">Démarrer un projet <span class="arrow">↗</span></a>
+      </div>
+      <div class="spotlight-visual right"></div>
+    </div>
+  </section>
+
+  <section class="spotlight">
+    <div class="container spotlight-inner">
+      <div class="spotlight-visual left"></div>
+      <div class="spotlight-content">
+        <span class="spotlight-num">02</span>
+        <h3>Refonte & suivi</h3>
+        <p>On modernise votre site existant et on le maintient fiable, rapide et à jour dans la durée.</p>
+        <a href="#contact" class="btn btn-ghost">Demander un devis <span class="arrow">↗</span></a>
+      </div>
+      <div class="spotlight-visual right"></div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="temoignages">
     <div class="container">
-      <p class="section-tag">Ce que nous faisons</p>
-      <h2>L'essentiel, bien fait</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="card-icon">✦</div>
-          <h3>Création sur-mesure</h3>
-          <p>Un site pensé pour votre image et la confiance de vos clients.</p>
+      <p class="section-tag">Avis clients</p>
+      <h2>Ce qu'en disent nos clients</h2>
+      <div class="testimonials-head">
+        <p>Des résultats concrets pour des cabinets qui misent sur leur image.</p>
+      </div>
+      <div class="t-cards">
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">« Un site qui reflète enfin le sérieux de notre cabinet. Nos clients nous le disent. »</p>
+          <p class="t-name">Maître C. Dubreuil</p>
+          <p class="t-role">Avocate associée</p>
         </div>
-        <div class="card">
-          <div class="card-icon">⟲</div>
-          <h3>Refonte</h3>
-          <p>On modernise votre site existant, sans repartir de zéro.</p>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">« Livré dans les délais, sans surprise. Exactement ce qu'on attendait. »</p>
+          <p class="t-name">A. Moreau</p>
+          <p class="t-role">Architecte</p>
         </div>
-        <div class="card">
-          <div class="card-icon">⬡</div>
-          <h3>Suivi & maintenance</h3>
-          <p>Un site fiable, à jour et disponible dans la durée.</p>
+        <div class="t-card">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-quote">« Nos demandes de contact ont nettement augmenté depuis la refonte. »</p>
+          <p class="t-name">J. Lefèvre</p>
+          <p class="t-role">Notaire</p>
         </div>
       </div>
     </div>
@@ -69,6 +101,7 @@
 
   <section class="cta-band" id="contact">
     <div class="container cta-inner">
+      <p class="section-tag">Contact</p>
       <h2>Parlons de votre projet</h2>
       <p>Réponse sous 24h, sans engagement.</p>
       <div class="contact-direct">

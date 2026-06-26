@@ -16,11 +16,10 @@ window.addEventListener('scroll', () => {
   scrollProgress.style.width = pct + '%';
 });
 
-const revealTargets = document.querySelectorAll('.card, .cta-inner, .hero-inner');
-revealTargets.forEach((el, i) => {
-  el.classList.add('reveal', 'reveal-stagger');
-  el.style.setProperty('--delay', (i % 3) * 0.12 + 's');
-});
+const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner');
+revealTargets.forEach(el => el.classList.add('reveal'));
+
+const spotlightSections = document.querySelectorAll('.spotlight');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -32,3 +31,4 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 revealTargets.forEach(el => observer.observe(el));
+spotlightSections.forEach(el => observer.observe(el));
