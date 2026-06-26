@@ -19,7 +19,7 @@ window.addEventListener('scroll', () => {
 const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner, .spotlight-content');
 revealTargets.forEach(el => el.classList.add('reveal'));
 
-const spotlightSections = document.querySelectorAll('.spotlight');
+const spotlightSections = document.querySelectorAll('.spotlight-item');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
