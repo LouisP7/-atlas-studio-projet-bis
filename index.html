@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atlas Studio — Création & Refonte de Sites Web</title>
-<meta name="description" content="Atlas Studio conçoit et refond des sites web modernes, rapides et orientés résultats pour les entreprises.">
+<title>Atlas Studio — Création de Sites Web pour Professions Libérales</title>
+<meta name="description" content="Atlas Studio conçoit des sites web sobres et crédibles pour avocats, architectes et professions libérales.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <header class="header" id="header">
   <div class="container header-inner">
     <a href="#" class="logo"><img src="assets/logo-crop.png" alt="Atlas Studio" class="logo-img"></a>
     <nav class="nav" id="nav">
       <a href="#services">Services</a>
-      <a href="#process">Méthode</a>
       <a href="#contact" class="nav-cta">Démarrer un projet</a>
     </nav>
     <button class="burger" id="burger" aria-label="Menu">
@@ -28,10 +29,13 @@
 <main>
 
   <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-orb one"></div>
+    <div class="hero-orb two"></div>
     <div class="container hero-inner">
-      <p class="eyebrow">Agence web · Création & refonte</p>
-      <h1>Des sites web qui font vraiment <span class="highlight">avancer votre entreprise.</span></h1>
-      <p class="hero-text">Atlas Studio conçoit et refond des sites vitrines, e-commerce et applications web pour les entreprises qui veulent un outil rapide, élégant et qui convertit.</p>
+      <p class="eyebrow">Sites web pour professions libérales</p>
+      <h1>Un site web à la hauteur de <span class="highlight">votre réputation.</span></h1>
+      <p class="hero-text">Atlas Studio conçoit des sites sobres et soignés pour les avocats, architectes et cabinets qui veulent inspirer confiance dès le premier regard.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Démarrer un projet</a>
         <a href="#contact" class="btn btn-ghost">Demander un devis</a>
@@ -42,82 +46,35 @@
   <section class="services" id="services">
     <div class="container">
       <p class="section-tag">Ce que nous faisons</p>
-      <h2>Des services pensés pour des résultats concrets</h2>
+      <h2>L'essentiel, bien fait</h2>
       <div class="cards">
         <div class="card">
           <div class="card-icon">✦</div>
-          <h3>Création de site web</h3>
-          <p>Sites vitrines et e-commerce sur-mesure, conçus pour votre image de marque et vos objectifs business.</p>
+          <h3>Création sur-mesure</h3>
+          <p>Un site pensé pour votre image et la confiance de vos clients.</p>
         </div>
         <div class="card">
           <div class="card-icon">⟲</div>
-          <h3>Refonte de site existant</h3>
-          <p>On modernise votre site actuel : design, performance, mobile et référencement, sans repartir de zéro.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">⚡</div>
-          <h3>Performance & SEO</h3>
-          <p>Temps de chargement optimisés, structure SEO solide et bonnes pratiques techniques dès la conception.</p>
+          <h3>Refonte</h3>
+          <p>On modernise votre site existant, sans repartir de zéro.</p>
         </div>
         <div class="card">
           <div class="card-icon">⬡</div>
-          <h3>Maintenance & support</h3>
-          <p>Mises à jour, sécurité et évolutions continues pour que votre site reste fiable dans le temps.</p>
+          <h3>Suivi & maintenance</h3>
+          <p>Un site fiable, à jour et disponible dans la durée.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="process" id="process">
-    <div class="container">
-      <p class="section-tag">Notre méthode</p>
-      <h2>Un processus simple, en 4 étapes</h2>
-      <div class="steps">
-        <div class="step">
-          <span class="step-num">01</span>
-          <h3>Cadrage</h3>
-          <p>On échange sur vos objectifs, votre cible et vos contraintes pour cadrer le projet.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">02</span>
-          <h3>Design</h3>
-          <p>Maquettes claires et validées avec vous avant tout développement.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">03</span>
-          <h3>Développement</h3>
-          <p>Intégration soignée, rapide et responsive sur tous les écrans.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">04</span>
-          <h3>Lancement</h3>
-          <p>Mise en ligne, formation et suivi post-lancement.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="testimonial">
-    <div class="container testimonial-inner">
-      <p class="quote">« Atlas Studio a totalement transformé notre présence en ligne. Le nouveau site charge en un instant et nos demandes de contact ont doublé en deux mois. »</p>
-      <p class="quote-author">— Camille R., Directrice marketing, NOVA Group</p>
     </div>
   </section>
 
   <section class="cta-band" id="contact">
     <div class="container cta-inner">
-      <h2>Prêt à donner un nouveau souffle à votre site ?</h2>
-      <p>Parlons de votre projet — réponse sous 24h, sans engagement.</p>
+      <h2>Parlons de votre projet</h2>
+      <p>Réponse sous 24h, sans engagement.</p>
       <div class="contact-direct">
         <a href="tel:0695324068">📞 06 95 32 40 68</a>
         <a href="mailto:louispeyron@icloud.com">✉️ louispeyron@icloud.com</a>
       </div>
-      <form class="contact-form">
-        <input type="text" placeholder="Votre nom" required>
-        <input type="email" placeholder="Votre email" required>
-        <textarea placeholder="Parlez-nous de votre projet" rows="4" required></textarea>
-        <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
-      </form>
     </div>
   </section>
 
@@ -125,20 +82,8 @@
 
 <footer class="footer">
   <div class="container footer-inner">
-    <div>
-      <a href="#" class="logo"><img src="assets/logo-crop.png" alt="Atlas Studio" class="logo-img"></a>
-      <p>Création & refonte de sites web pour entreprises.</p>
-    </div>
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#process">Méthode</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="footer-contact">
-      <a href="tel:0695324068">06 95 32 40 68</a>
-      <a href="mailto:louispeyron@icloud.com">louispeyron@icloud.com</a>
-    </div>
-    <p class="footer-copy">© 2026 Atlas Studio. Tous droits réservés. — Conception : Atlas Studio</p>
+    <a href="#" class="logo"><img src="assets/logo-crop.png" alt="Atlas Studio" class="logo-img"></a>
+    <p class="footer-copy">© 2026 Atlas Studio. Tous droits réservés.</p>
   </div>
 </footer>
 
