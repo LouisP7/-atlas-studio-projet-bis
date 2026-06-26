@@ -16,7 +16,7 @@ window.addEventListener('scroll', () => {
   scrollProgress.style.width = pct + '%';
 });
 
-const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner');
+const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner, .spotlight-content');
 revealTargets.forEach(el => el.classList.add('reveal'));
 
 const spotlightSections = document.querySelectorAll('.spotlight');
