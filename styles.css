@@ -317,7 +317,16 @@ section h2{
 }
 
 /* Process / steps */
-.process{padding:120px 0;text-align:center;background:#020617;position:relative;overflow:hidden}
+.process{text-align:center;background:#020617;position:relative}
+.process-scroll{position:relative;height:280vh}
+.process-pin{
+  position:sticky;top:0;
+  height:100vh;
+  display:flex;align-items:center;
+  padding-top:110px;box-sizing:border-box;
+  overflow:hidden;
+}
+.process-pin .container{width:100%}
 .process::before{
   content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);
   width:900px;height:500px;

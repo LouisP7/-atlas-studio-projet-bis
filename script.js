@@ -117,16 +117,15 @@ if (statNums.length) {
 
 const processTrack = document.getElementById('processTrack');
 if (processTrack) {
-  const processCarousel = document.getElementById('processCarousel');
+  const processScroll = document.getElementById('processScroll');
   const rows = Array.from(processTrack.children);
   const dots = Array.from(document.querySelectorAll('.process-dot'));
   const slideCount = rows.length;
-  let current = 0;
-  let autoplay;
-  let started = false;
+  let current = -1;
 
   const goTo = (index) => {
-    current = (index + slideCount) % slideCount;
+    if (index === current) return;
+    current = index;
     processTrack.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
     rows.forEach((row, i) => {
@@ -138,31 +137,26 @@ if (processTrack) {
     });
   };
 
-  const startAutoplay = () => {
-    clearInterval(autoplay);
-    autoplay = setInterval(() => goTo(current + 1), 4000);
+  const updateFromScroll = () => {
+    const rect = processScroll.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    const scrolled = -rect.top;
+    const progress = Math.min(1, Math.max(0, scrolled / total));
+    const index = Math.min(slideCount - 1, Math.floor(progress * slideCount));
+    goTo(index);
   };
 
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-      goTo(i);
-      startAutoplay();
+      const rect = processScroll.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const targetY = window.scrollY + rect.top + (i / slideCount) * total + 10;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
     });
   });
 
-  processCarousel.addEventListener('mouseenter', () => clearInterval(autoplay));
-  processCarousel.addEventListener('mouseleave', startAutoplay);
-
-  const carouselObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !started) {
-        started = true;
-        goTo(0);
-        startAutoplay();
-      }
-    });
-  }, { threshold: 0.4 });
-  carouselObserver.observe(processCarousel);
+  window.addEventListener('scroll', updateFromScroll, { passive: true });
+  updateFromScroll();
 }
 
 const scrollFillTitle = document.getElementById('testimonialsTitle');
