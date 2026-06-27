@@ -118,6 +118,13 @@ ul{list-style:none}
 .hero.hero-video h1{color:#fff}
 .hero.hero-video .highlight{color:#fff}
 .hero.hero-video .btn-ghost{color:#fff}
+.hero-logo{
+  width:min(640px,90%);
+  height:auto;
+  margin:0 auto 28px;
+  filter:brightness(0) invert(1);
+  display:block;
+}
 .eyebrow{
   display:block;
   color:var(--text-dim);
