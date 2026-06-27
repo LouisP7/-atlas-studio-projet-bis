@@ -334,7 +334,7 @@ section h2{
   pointer-events:none;
 }
 .process .section-tag{color:rgba(255,255,255,0.6);position:relative;z-index:1}
-.process-title{margin-bottom:64px;color:#fff;position:relative;z-index:1}
+.process-title{margin-bottom:56px;color:#fff;position:relative;z-index:1}
 .process-carousel{position:relative;z-index:1;overflow:hidden}
 .process-rows{
   display:flex;
@@ -343,36 +343,89 @@ section h2{
 }
 .process-row{
   flex:0 0 100%;
-  display:flex;align-items:center;gap:64px;
+  display:flex;align-items:center;gap:72px;
 }
 .process-row:nth-child(even){flex-direction:row-reverse}
-.process-dots{display:flex;justify-content:center;gap:10px;margin-top:48px}
-.process-dot{
-  width:8px;height:8px;border-radius:50%;border:none;padding:0;
-  background:rgba(255,255,255,0.25);cursor:pointer;
-  transition:background .3s ease, transform .3s ease, width .3s ease;
+
+/* Progress: numbered steps connected by a fill-on-scroll line */
+.process-progress{margin-top:52px;position:relative}
+.process-progress-track{
+  position:absolute;top:50%;left:36px;right:36px;
+  height:2px;
+  background:rgba(255,255,255,0.1);
+  transform:translateY(-50%);
 }
-.process-dot.is-active{background:#fff;width:24px;border-radius:5px}
+.process-progress-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg, #4f7df0, #8fd6ff);
+  transition:width .3s ease;
+}
+.process-dots{display:flex;justify-content:center;gap:48px;position:relative}
+.process-dot{
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.16);padding:0;
+  background:#0a1226;color:rgba(255,255,255,0.5);
+  font-size:12px;font-weight:700;letter-spacing:0.02em;
+  cursor:pointer;
+  transition:background .3s ease, color .3s ease, border-color .3s ease, transform .3s ease;
+}
+.process-dot.is-active{background:#fff;color:var(--navy);border-color:#fff;transform:scale(1.1)}
+
 .process-row-media{
   flex:1;
   aspect-ratio:4/3;
-  border-radius:28px;
+  position:relative;
   display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(155deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015));
-  border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
-  color:#fff;
-  position:relative;overflow:hidden;
   opacity:0;
+}
+.process-row-watermark{
+  position:absolute;top:-34px;left:-14px;
+  font-size:140px;font-weight:800;letter-spacing:-0.04em;
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(255,255,255,0.1);
+  z-index:0;
+  pointer-events:none;
+  user-select:none;
+}
+.process-row:nth-child(even) .process-row-watermark{left:auto;right:-14px}
+.process-window{
+  width:100%;height:100%;
+  border-radius:20px;
+  background:linear-gradient(165deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.12);
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);
+  position:relative;z-index:1;overflow:hidden;
+  display:flex;flex-direction:column;
   transition:transform .45s ease, box-shadow .45s ease;
 }
-.process-row-media::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 25%, rgba(80,110,220,0.25), transparent 60%);
+.process-row:hover .process-window{transform:translateY(-6px);box-shadow:0 36px 70px -18px rgba(0,0,0,0.65)}
+.process-window-bar{
+  display:flex;gap:7px;align-items:center;
+  padding:14px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
-.process-row:hover .process-row-media{transform:translateY(-6px);box-shadow:0 36px 70px -18px rgba(0,0,0,0.6)}
-.process-icon{width:72px;height:72px;position:relative;z-index:1}
-.process-row-text{flex:1;opacity:0}
+.process-window-bar span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.18)}
+.process-window-bar span:nth-child(1){background:#ff6159}
+.process-window-bar span:nth-child(2){background:#ffbd2e}
+.process-window-bar span:nth-child(3){background:#28c840}
+.process-window-body{
+  flex:1;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.process-window-body::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%, rgba(80,110,220,0.3), transparent 60%);
+}
+.process-icon-badge{
+  width:104px;height:104px;border-radius:26px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(155deg, var(--navy-soft), var(--navy));
+  box-shadow:0 16px 32px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
+  color:#fff;
+  position:relative;z-index:1;
+}
+.process-icon{width:52px;height:52px}
+.process-row-text{flex:1;opacity:0;position:relative;z-index:1}
 .process-row.is-active .process-row-text{animation:process-step-in .7s cubic-bezier(.16,1,.3,1) .15s forwards}
 .process-row.is-active .process-row-media{animation:process-step-in .7s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes process-step-in{
@@ -380,14 +433,11 @@ section h2{
   to{opacity:1;transform:translateY(0)}
 }
 .process-num{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:36px;height:36px;border-radius:50%;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);
-  font-weight:700;font-size:13px;letter-spacing:0.02em;
-  color:rgba(255,255,255,0.7);margin-bottom:20px;
+  display:inline-block;
+  font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
+  color:#8fd6ff;margin-bottom:16px;
 }
-.process-row-text h3{font-size:clamp(22px,2.6vw,28px);font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:-0.01em}
+.process-row-text h3{font-size:clamp(24px,2.8vw,32px);font-weight:700;color:#fff;margin-bottom:14px;letter-spacing:-0.01em}
 .process-row-text p{color:rgba(255,255,255,0.55);font-size:16.5px;line-height:1.6;max-width:420px}
 
 /* Testimonials */
@@ -489,6 +539,11 @@ section h2{
   .process-row:nth-child(even){flex-direction:column}
   .process-row-media{width:100%;aspect-ratio:16/10}
   .process-row-text p{max-width:none}
+  .process-row-watermark{font-size:90px;top:-22px}
+  .process-icon-badge{width:84px;height:84px;border-radius:22px}
+  .process-icon{width:42px;height:42px}
+  .process-dots{gap:28px}
+  .process-progress-track{left:18px;right:18px}
 }
 
 @media (max-width:768px){
