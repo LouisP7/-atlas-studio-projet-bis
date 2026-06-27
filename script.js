@@ -126,14 +126,9 @@ if (processTrack) {
   const goTo = (index) => {
     if (index === current) return;
     current = index;
-    processTrack.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
     rows.forEach((row, i) => {
-      row.classList.remove('is-active');
-      if (i === current) {
-        void row.offsetWidth;
-        row.classList.add('is-active');
-      }
+      row.classList.toggle('is-stacked', i <= current);
     });
   };
 
