@@ -164,7 +164,6 @@ section h2{
   position:absolute;inset:0;
   border-radius:var(--radius);
   overflow:hidden;
-  background:linear-gradient(135deg, var(--navy), var(--navy-soft));
   clip-path:inset(50% round var(--radius));
   transition:clip-path 1.1s cubic-bezier(.16,1,.3,1);
 }
@@ -178,15 +177,23 @@ section h2{
 }
 .spotlight-item.is-visible .spotlight-visual-inner{
   clip-path:inset(0% round var(--radius));
-  animation:spotlight-float 6s ease-in-out 1.1s infinite;
+}
+.spotlight-item.is-visible .spotlight-visual-inner::before{
+  animation:spotlight-kenburns 9s ease-in-out 1.1s infinite alternate;
 }
 .spotlight-item.is-visible .spotlight-visual-inner::after{
   animation:spotlight-shine 1.3s ease 1.1s;
 }
+.spotlight-visual-inner::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg, var(--navy), var(--navy-soft));
+  transform:scale(1.12);
+  transform-origin:center;
+}
 @keyframes spotlight-shine{to{transform:translateX(160%)}}
-@keyframes spotlight-float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+@keyframes spotlight-kenburns{
+  0%{transform:scale(1.12) translate(0,0)}
+  100%{transform:scale(1.3) translate(-2%,-2%)}
 }
 
 /* Testimonials */
