@@ -43,7 +43,7 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner, .spotlight-content, .process-step');
+const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner, .spotlight-content, .process-carousel');
 revealTargets.forEach(el => el.classList.add('reveal'));
 
 const spotlightSections = document.querySelectorAll('.spotlight-item');
@@ -118,15 +118,24 @@ if (statNums.length) {
 const processTrack = document.getElementById('processTrack');
 if (processTrack) {
   const processCarousel = document.getElementById('processCarousel');
+  const rows = Array.from(processTrack.children);
   const dots = Array.from(document.querySelectorAll('.process-dot'));
-  const slideCount = processTrack.children.length;
+  const slideCount = rows.length;
   let current = 0;
   let autoplay;
+  let started = false;
 
   const goTo = (index) => {
     current = (index + slideCount) % slideCount;
     processTrack.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+    rows.forEach((row, i) => {
+      row.classList.remove('is-active');
+      if (i === current) {
+        void row.offsetWidth;
+        row.classList.add('is-active');
+      }
+    });
   };
 
   const startAutoplay = () => {
@@ -144,8 +153,16 @@ if (processTrack) {
   processCarousel.addEventListener('mouseenter', () => clearInterval(autoplay));
   processCarousel.addEventListener('mouseleave', startAutoplay);
 
-  goTo(0);
-  startAutoplay();
+  const carouselObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        goTo(0);
+        startAutoplay();
+      }
+    });
+  }, { threshold: 0.4 });
+  carouselObserver.observe(processCarousel);
 }
 
 const scrollFillTitle = document.getElementById('testimonialsTitle');
