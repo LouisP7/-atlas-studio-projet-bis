@@ -46,34 +46,32 @@ ul{list-style:none}
 .header.scrolled{padding-top:12px}
 .header-inner{
   pointer-events:auto;
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;justify-content:flex-end;
   max-width:var(--max);margin:0 auto;
-  height:78px;
-  padding:0 16px 0 28px;
+  height:64px;
+  padding:0 20px;
   border-radius:999px;
-  background:rgba(255,255,255,0.55);
-  border:1px solid rgba(8,18,38,0.08);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  box-shadow:0 1px 1px rgba(8,18,38,0.04), 0 18px 40px -20px rgba(8,18,38,0.25);
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:saturate(160%) blur(10px);
+  -webkit-backdrop-filter:saturate(160%) blur(10px);
+  box-shadow:none;
   transition:height .35s cubic-bezier(.16,1,.3,1), background .35s ease, box-shadow .35s ease;
 }
 .header.scrolled .header-inner{
-  height:60px;
-  background:rgba(255,255,255,0.72);
+  height:56px;
+  background:rgba(255,255,255,0.7);
   box-shadow:0 1px 1px rgba(8,18,38,0.05), 0 14px 30px -18px rgba(8,18,38,0.3);
 }
-.logo{display:flex;align-items:center}
-.logo-img{height:34px;width:auto;display:block;transition:height .35s cubic-bezier(.16,1,.3,1)}
-.header.scrolled .logo-img{height:26px}
-.nav{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:500;color:var(--text)}
+.nav{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:500;color:#fff;transition:color .35s ease}
+.header.scrolled .nav{color:var(--text)}
 .nav a:not(.nav-cta){position:relative;padding:4px 0}
 .nav a:not(.nav-cta)::after{
   content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;
-  background:var(--navy);transition:width .25s ease;
+  background:currentColor;transition:width .25s ease;
 }
 .nav a:not(.nav-cta):hover::after{width:100%}
-.nav a:hover{color:var(--navy)}
+.nav a:hover{opacity:0.8}
 .nav-cta{
   background:var(--navy);
   color:#fff !important;
@@ -86,7 +84,8 @@ ul{list-style:none}
 }
 .nav-cta:hover{background:var(--navy-soft);transform:translateY(-1px);box-shadow:0 4px 14px rgba(8,18,38,0.24)}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-.burger span{width:20px;height:1.5px;background:var(--text)}
+.burger span{width:20px;height:1.5px;background:#fff}
+.header.scrolled .burger span{background:var(--text)}
 
 /* Hero */
 .hero{
