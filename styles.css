@@ -273,8 +273,32 @@ section h2{
 }
 .contact-direct a:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
 
+/* Project form page */
+.project-form-section{padding:0 0 120px}
+.project-form{
+  max-width:520px;margin:0 auto;
+  display:flex;flex-direction:column;gap:20px;
+}
+.project-form label{
+  display:flex;flex-direction:column;gap:8px;
+  font-size:14px;font-weight:600;color:var(--text);text-align:left;
+}
+.project-form input,
+.project-form select,
+.project-form textarea{
+  font-family:inherit;font-size:15px;font-weight:400;
+  padding:13px 16px;
+  border:1px solid var(--border);border-radius:12px;
+  background:var(--bg-soft);color:var(--text);
+  resize:none;
+}
+.project-form input:focus,
+.project-form select:focus,
+.project-form textarea:focus{outline:none;border-color:var(--navy)}
+.btn-block{width:100%}
+
 /* Footer */
-.footer{padding:32px 0;background:#020617}
+.footer{padding:32px 0;background:var(--navy)}
 .footer-inner{
   display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:14px;

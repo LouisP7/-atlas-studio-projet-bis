@@ -35,6 +35,14 @@ const observer = new IntersectionObserver((entries) => {
 revealTargets.forEach(el => observer.observe(el));
 spotlightSections.forEach(el => observer.observe(el));
 
+const projectForm = document.getElementById('projectForm');
+if (projectForm) {
+  projectForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    projectForm.innerHTML = '<p style="color:#081226;font-weight:600;text-align:center;">Merci ! Votre demande a bien été envoyée, nous vous répondons sous 24h.</p>';
+  });
+}
+
 const scrollFillTitle = document.getElementById('testimonialsTitle');
 if (scrollFillTitle) {
   const words = scrollFillTitle.querySelectorAll('.word');

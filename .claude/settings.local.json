@@ -3,7 +3,27 @@
     "allow": [
       "Bash(gh auth *)",
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(find ~/Desktop ~/Downloads -maxdepth 3 -newer \"/Users/louispeyron/Desktop/ATLAS STUDIO PROJET BIS/assets/trailer.mp4\" \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" \\\\\\) 2>/dev/null)",
+      "Bash(find \"/Users/louispeyron/Library/Application Support/Claude/claude-code-sessions\" -newer \"/Users/louispeyron/Desktop/ATLAS STUDIO PROJET BIS/assets/trailer.mp4\" -iname \"*.png\" 2>/dev/null | head -20)",
+      "Bash(find \"/Users/louispeyron/Library/Application Support/Claude\" -iname \"*.png\" -mmin -30 2>/dev/null | head -20)",
+      "WebFetch(domain:webild-components-version-4.vercel.app)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -s \"https://webild-components-version-4.vercel.app/components/templates/detailing\")",
+      "Bash(curl -s \"https://webild-components-version-4.vercel.app/assets/index-3mhFH_SE.css\" -o /tmp/webild.css)",
+      "Read(//tmp/**)",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git commit *)",
+      "Bash(find ~/Desktop ~/Downloads -maxdepth 2 -iname \"*.png\" -newer \"/Users/louispeyron/Desktop/ATLAS STUDIO PROJET BIS/assets/logo-crop.png\" 2>/dev/null | head -20)",
+      "Bash(cp \"/Users/louispeyron/Desktop/LOGO .png\" \"/Users/louispeyron/Desktop/ATLAS STUDIO PROJET BIS/assets/logo-crop.png\" && ls -la \"/Users/louispeyron/Desktop/ATLAS STUDIO PROJET BIS/assets/\")",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "Bash(find ~/Desktop ~/Downloads -maxdepth 2 -iname \"*.png\" -newer \"/Users/louispeyron/Desktop/ATLAS STUDIO PROJET BIS/assets/logo-crop.png\" 2>/dev/null)",
+      "Bash(ffmpeg -i \"/Users/louispeyron/Desktop/hh.mov\" -vf fps=4 frame_%03d.png -hide_banner -loglevel error)",
+      "Bash(which avconvert *)"
     ]
   }
 }

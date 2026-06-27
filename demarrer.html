@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Démarrer un projet — Atlas Studio</title>
+<meta name="description" content="Démarrez votre projet de site web avec Atlas Studio : décrivez votre besoin, on vous répond sous 24h.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="assets/logo-crop.png" alt="Atlas Studio" class="logo-img"></a>
+    <nav class="nav" id="nav">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#temoignages">Avis</a>
+      <a href="demarrer.html" class="nav-cta">Démarrer un projet</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">Atlas Studio</span>
+      <h1>Parlez-nous de <span class="highlight">votre projet.</span></h1>
+      <p class="hero-text">Remplissez ce court formulaire et nous vous répondons sous 24h avec les prochaines étapes.</p>
+    </div>
+  </section>
+
+  <section class="project-form-section">
+    <div class="container">
+      <form class="project-form" id="projectForm">
+        <label>
+          Nom complet
+          <input type="text" name="name" placeholder="Votre nom" required>
+        </label>
+        <label>
+          E-mail
+          <input type="email" name="email" placeholder="vous@cabinet.fr" required>
+        </label>
+        <label>
+          Type de projet
+          <select name="project_type" required>
+            <option value="" disabled selected>Sélectionnez une option</option>
+            <option value="creation">Création de site sur-mesure</option>
+            <option value="refonte">Refonte d'un site existant</option>
+            <option value="autre">Autre / je ne sais pas encore</option>
+          </select>
+        </label>
+        <label>
+          Votre besoin
+          <textarea name="message" rows="5" placeholder="Décrivez votre cabinet, vos objectifs, vos délais..." required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <a href="index.html" class="logo"><img src="assets/logo-crop.png" alt="Atlas Studio" class="logo-img"></a>
+    <p class="footer-copy">© 2026 Atlas Studio. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
