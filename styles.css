@@ -90,7 +90,7 @@ ul{list-style:none}
 
 /* Hero */
 .hero{
-  padding:180px 0 100px;
+  padding:180px 0 160px;
   text-align:center;
   background:linear-gradient(180deg,#fff 0%, var(--bg-soft) 100%);
 }
