@@ -198,15 +198,16 @@ section h2{
   margin-bottom:48px;
   position:relative;z-index:1;
   display:inline-block;
-  background:linear-gradient(135deg, var(--navy) 20%, #3b63d9 50%, #5dd0ff 80%);
+  background:linear-gradient(100deg, var(--navy) 35%, #2e3f6e 48%, #5a6fa8 50%, #2e3f6e 52%, var(--navy) 65%);
+  background-size:280% 100%;
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
-  animation:spotlight-glow 3.2s ease-in-out infinite alternate;
+  animation:spotlight-sweep 4s linear infinite;
 }
-@keyframes spotlight-glow{
-  0%{filter:drop-shadow(0 0 0px rgba(61,99,217,0))}
-  100%{filter:drop-shadow(0 0 22px rgba(61,99,217,0.5))}
+@keyframes spotlight-sweep{
+  0%{background-position:100% 50%}
+  100%{background-position:-80% 50%}
 }
 .spotlight::before{
   content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);
