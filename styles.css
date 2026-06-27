@@ -318,11 +318,6 @@ section h2{
 
 /* Process / steps */
 .process{text-align:center;background:#020617;position:relative}
-.process::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:280px;
-  background:linear-gradient(to bottom, transparent, var(--bg));
-  pointer-events:none;z-index:2;
-}
 .process-scroll{position:relative;height:280vh}
 .process-pin{
   position:sticky;top:0;
