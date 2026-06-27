@@ -40,12 +40,13 @@ ul{list-style:none}
   position:fixed;top:0;left:0;right:0;
   z-index:100;
   padding:20px 24px 0;
-  transition:padding .35s cubic-bezier(.16,1,.3,1), opacity .35s ease, visibility .35s ease;
+  transition:padding .35s cubic-bezier(.16,1,.3,1), opacity .45s ease, visibility .45s ease, transform .45s cubic-bezier(.16,1,.3,1);
   pointer-events:none;
   opacity:0;
   visibility:hidden;
+  transform:translateY(-100%);
 }
-.header.scrolled{padding-top:12px;opacity:1;visibility:visible}
+.header.scrolled{padding-top:12px;opacity:1;visibility:visible;transform:translateY(0)}
 .header-inner{
   pointer-events:auto;
   display:flex;align-items:center;justify-content:flex-end;
