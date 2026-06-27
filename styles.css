@@ -154,33 +154,39 @@ section h2{
 .spotlight-content h3{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;color:var(--navy)}
 .spotlight-content p{color:var(--text-dim);font-size:16px;margin-bottom:18px}
 .spotlight-visual{
-  position:relative;overflow:hidden;
+  position:relative;
   max-width:380px;margin:0 auto;
   height:220px;border-radius:var(--radius);
-  background:linear-gradient(135deg, var(--navy), var(--navy-soft));
-  opacity:0;transform-style:preserve-3d;
   box-shadow:0 0 0 rgba(8,18,38,0);
-  transition:opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1), box-shadow 1s ease .2s;
+  transition:box-shadow 1.1s ease .3s;
 }
-.spotlight-visual::after{
+.spotlight-visual-inner{
+  position:absolute;inset:0;
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:linear-gradient(135deg, var(--navy), var(--navy-soft));
+  clip-path:inset(50% round var(--radius));
+  transition:clip-path 1.1s cubic-bezier(.16,1,.3,1);
+}
+.spotlight-visual-inner::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.3) 50%, transparent 65%);
   transform:translateX(-160%);
 }
-.spotlight-item:nth-child(1) .spotlight-visual{transform:translateX(-120px) rotateY(-28deg) scale(.82)}
-.spotlight-item:nth-child(2) .spotlight-visual{transform:translateX(120px) rotateY(28deg) scale(.82)}
 .spotlight-item.is-visible .spotlight-visual{
-  opacity:1;transform:translateX(0) rotateY(0) scale(1);
-  box-shadow:0 30px 60px -12px rgba(8,18,38,0.35), 0 0 50px -10px rgba(8,18,38,0.25);
-  animation:spotlight-float 6s ease-in-out 1s infinite;
+  box-shadow:0 30px 70px -12px rgba(8,18,38,0.4), 0 0 60px -8px rgba(8,18,38,0.3);
 }
-.spotlight-item.is-visible .spotlight-visual::after{
-  animation:spotlight-shine 1.3s ease 1s;
+.spotlight-item.is-visible .spotlight-visual-inner{
+  clip-path:inset(0% round var(--radius));
+  animation:spotlight-float 6s ease-in-out 1.1s infinite;
+}
+.spotlight-item.is-visible .spotlight-visual-inner::after{
+  animation:spotlight-shine 1.3s ease 1.1s;
 }
 @keyframes spotlight-shine{to{transform:translateX(160%)}}
 @keyframes spotlight-float{
-  0%,100%{transform:translateY(0) rotateY(0) scale(1)}
-  50%{transform:translateY(-10px) rotateY(0) scale(1)}
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
 
 /* Testimonials */
