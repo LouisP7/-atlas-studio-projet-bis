@@ -115,6 +115,39 @@ if (statNums.length) {
   statNums.forEach(el => statObserver.observe(el));
 }
 
+const processTrack = document.getElementById('processTrack');
+if (processTrack) {
+  const processCarousel = document.getElementById('processCarousel');
+  const dots = Array.from(document.querySelectorAll('.process-dot'));
+  const slideCount = processTrack.children.length;
+  let current = 0;
+  let autoplay;
+
+  const goTo = (index) => {
+    current = (index + slideCount) % slideCount;
+    processTrack.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+  };
+
+  const startAutoplay = () => {
+    clearInterval(autoplay);
+    autoplay = setInterval(() => goTo(current + 1), 4000);
+  };
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goTo(i);
+      startAutoplay();
+    });
+  });
+
+  processCarousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+  processCarousel.addEventListener('mouseleave', startAutoplay);
+
+  goTo(0);
+  startAutoplay();
+}
+
 const scrollFillTitle = document.getElementById('testimonialsTitle');
 if (scrollFillTitle) {
   const words = scrollFillTitle.querySelectorAll('.word');
