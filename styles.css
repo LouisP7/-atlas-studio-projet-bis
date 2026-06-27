@@ -51,7 +51,7 @@ ul{list-style:none}
   height:78px;
   padding:0 16px 0 28px;
   border-radius:999px;
-  background:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.55);
   border:1px solid rgba(8,18,38,0.08);
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
@@ -60,12 +60,12 @@ ul{list-style:none}
 }
 .header.scrolled .header-inner{
   height:60px;
-  background:rgba(255,255,255,0.88);
+  background:rgba(255,255,255,0.72);
   box-shadow:0 1px 1px rgba(8,18,38,0.05), 0 14px 30px -18px rgba(8,18,38,0.3);
 }
 .logo{display:flex;align-items:center}
-.logo-img{height:44px;width:auto;display:block;transition:height .35s cubic-bezier(.16,1,.3,1)}
-.header.scrolled .logo-img{height:32px}
+.logo-img{height:34px;width:auto;display:block;transition:height .35s cubic-bezier(.16,1,.3,1)}
+.header.scrolled .logo-img{height:26px}
 .nav{display:flex;align-items:center;gap:34px;font-size:14px;font-weight:500;color:var(--text)}
 .nav a:not(.nav-cta){position:relative;padding:4px 0}
 .nav a:not(.nav-cta)::after{
