@@ -37,8 +37,27 @@ spotlightSections.forEach(el => observer.observe(el));
 
 const projectForm = document.getElementById('projectForm');
 if (projectForm) {
-  projectForm.addEventListener('submit', (e) => {
+  const supabase = window.supabase.createClient(
+    'https://srobavaipcxapnzsmqi.supabase.co',
+    'sb_publishable_46ZgtTYyuXnXoPdUUrqEPA_bj-Tou_0'
+  );
+
+  projectForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const formData = new FormData(projectForm);
+    const { error } = await supabase.from('demandes_projet').insert({
+      name: formData.get('name'),
+      email: formData.get('email'),
+      project_type: formData.get('project_type'),
+      message: formData.get('message'),
+    });
+
+    if (error) {
+      projectForm.innerHTML = '<p style="color:#b00020;font-weight:600;text-align:center;">Une erreur est survenue, merci de réessayer ou de nous contacter par e-mail.</p>';
+      console.error(error);
+      return;
+    }
+
     projectForm.innerHTML = '<p style="color:#081226;font-weight:600;text-align:center;">Merci ! Votre demande a bien été envoyée, nous vous répondons sous 24h.</p>';
   });
 }
