@@ -465,4 +465,7 @@ section h2{
   .hero-logo{width:min(320px,70%)}
   .spotlight-title{font-size:38px}
   .nav-cta{padding:8px 14px;font-size:13px}
+  .header-inner{padding:0 8px 0 16px}
+  .logo-img{height:18px}
+  .menu-toggle{width:38px;height:38px}
 }
