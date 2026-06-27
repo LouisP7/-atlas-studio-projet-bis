@@ -445,4 +445,5 @@ section h2{
   .t-cards{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;text-align:center}
   .hero-logo{width:min(320px,70%)}
+  .spotlight-title{font-size:38px}
 }
