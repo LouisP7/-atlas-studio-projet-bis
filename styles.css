@@ -144,7 +144,7 @@ section h2{
 
 /* Spotlight feature sections */
 .spotlight{padding:100px 0;text-align:center;border-top:1px solid var(--border)}
-.spotlight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:60px}
+.spotlight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:60px;perspective:1400px}
 .spotlight-item:nth-child(2){background:var(--bg-soft);border-radius:var(--radius);padding:8px}
 .spotlight-num{
   display:inline-block;font-size:14px;font-weight:600;color:var(--text-dim);
@@ -154,15 +154,34 @@ section h2{
 .spotlight-content h3{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;color:var(--navy)}
 .spotlight-content p{color:var(--text-dim);font-size:16px;margin-bottom:18px}
 .spotlight-visual{
+  position:relative;overflow:hidden;
   max-width:380px;margin:0 auto;
   height:220px;border-radius:var(--radius);
   background:linear-gradient(135deg, var(--navy), var(--navy-soft));
-  opacity:0;
-  transition:opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1);
+  opacity:0;transform-style:preserve-3d;
+  box-shadow:0 0 0 rgba(8,18,38,0);
+  transition:opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1), box-shadow 1s ease .2s;
 }
-.spotlight-item:nth-child(1) .spotlight-visual{transform:translateX(-90px)}
-.spotlight-item:nth-child(2) .spotlight-visual{transform:translateX(90px)}
-.spotlight-item.is-visible .spotlight-visual{opacity:1;transform:translateX(0)}
+.spotlight-visual::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.3) 50%, transparent 65%);
+  transform:translateX(-160%);
+}
+.spotlight-item:nth-child(1) .spotlight-visual{transform:translateX(-120px) rotateY(-28deg) scale(.82)}
+.spotlight-item:nth-child(2) .spotlight-visual{transform:translateX(120px) rotateY(28deg) scale(.82)}
+.spotlight-item.is-visible .spotlight-visual{
+  opacity:1;transform:translateX(0) rotateY(0) scale(1);
+  box-shadow:0 30px 60px -12px rgba(8,18,38,0.35), 0 0 50px -10px rgba(8,18,38,0.25);
+  animation:spotlight-float 6s ease-in-out 1s infinite;
+}
+.spotlight-item.is-visible .spotlight-visual::after{
+  animation:spotlight-shine 1.3s ease 1s;
+}
+@keyframes spotlight-shine{to{transform:translateX(160%)}}
+@keyframes spotlight-float{
+  0%,100%{transform:translateY(0) rotateY(0) scale(1)}
+  50%{transform:translateY(-10px) rotateY(0) scale(1)}
+}
 
 /* Testimonials */
 .testimonials{padding:100px 0;text-align:center;border-top:1px solid var(--border)}
