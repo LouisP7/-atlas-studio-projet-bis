@@ -38,7 +38,7 @@ spotlightSections.forEach(el => observer.observe(el));
 const projectForm = document.getElementById('projectForm');
 if (projectForm) {
   const supabase = window.supabase.createClient(
-    'https://srobavaipcxapnzsmqi.supabase.co',
+    'https://srobavwaipcxapnzsmqi.supabase.co',
     'sb_publishable_46ZgtTYyuXnXoPdUUrqEPA_bj-Tou_0'
   );
 
