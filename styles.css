@@ -318,6 +318,11 @@ section h2{
 
 /* Process / steps */
 .process{text-align:center;background:#020617;position:relative}
+.process::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:280px;
+  background:linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events:none;z-index:2;
+}
 .process-scroll{position:relative;height:280vh}
 .process-pin{
   position:sticky;top:0;
@@ -441,7 +446,7 @@ section h2{
 .process-row-text p{color:rgba(255,255,255,0.55);font-size:16.5px;line-height:1.6;max-width:420px}
 
 /* Testimonials */
-.testimonials{padding:100px 0;text-align:center;border-top:1px solid var(--border)}
+.testimonials{padding:100px 0;text-align:center}
 .testimonials-head p{color:var(--text-dim);font-size:19px;max-width:480px;margin:0 auto 48px}
 
 .stats-strip{
