@@ -18,7 +18,7 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner, .spotlight-content');
+const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner, .spotlight-content, .process-step');
 revealTargets.forEach(el => el.classList.add('reveal'));
 
 const spotlightSections = document.querySelectorAll('.spotlight-item');
