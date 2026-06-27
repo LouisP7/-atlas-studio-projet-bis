@@ -13,14 +13,21 @@
 
 <header class="header" id="header">
   <div class="header-inner">
-    <nav class="nav" id="nav">
-      <a href="#services">Services</a>
-      <a href="#temoignages">Avis</a>
+    <a href="#" class="logo"><img src="assets/logo-crop.png" alt="Atlas Studio" class="logo-img"></a>
+    <div class="header-actions">
       <a href="demarrer.html" class="nav-cta">Démarrer un projet</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="menu-panel" id="menuPanel">
+      <a href="#services" class="menu-item"><span>Services</span>
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#temoignages" class="menu-item"><span>Avis</span>
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </nav>
-    <button class="burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
 

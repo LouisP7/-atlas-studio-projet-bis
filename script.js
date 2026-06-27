@@ -12,15 +12,26 @@ if (heroVideo) {
   });
 }
 
-const burger = document.getElementById('burger');
-const nav = document.getElementById('nav');
+const menuToggle = document.getElementById('menuToggle');
+const menuPanel = document.getElementById('menuPanel');
 
-burger.addEventListener('click', () => {
-  nav.classList.toggle('open');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('open');
+  menuPanel.classList.toggle('open');
 });
 
-nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => nav.classList.remove('open'));
+menuPanel.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('open');
+    menuPanel.classList.remove('open');
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (!menuPanel.contains(e.target) && !menuToggle.contains(e.target)) {
+    menuToggle.classList.remove('open');
+    menuPanel.classList.remove('open');
+  }
 });
 
 const scrollProgress = document.getElementById('scrollProgress');
