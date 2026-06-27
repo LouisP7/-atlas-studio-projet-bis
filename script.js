@@ -10,10 +10,12 @@ nav.querySelectorAll('a').forEach(link => {
 });
 
 const scrollProgress = document.getElementById('scrollProgress');
+const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   const max = document.documentElement.scrollHeight - window.innerHeight;
   const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
   scrollProgress.style.width = pct + '%';
+  header.classList.toggle('scrolled', window.scrollY > 40);
 });
 
 const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner, .spotlight-content');
