@@ -277,6 +277,23 @@ section h2{
 /* Testimonials */
 .testimonials{padding:100px 0;text-align:center;border-top:1px solid var(--border)}
 .testimonials-head p{color:var(--text-dim);font-size:19px;max-width:480px;margin:0 auto 48px}
+
+.stats-strip{
+  display:flex;justify-content:center;gap:64px;
+  margin:0 auto 64px;padding:36px 0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.stat{display:flex;flex-direction:column;align-items:center}
+.stat-value{display:flex;align-items:baseline}
+.stat-num{
+  font-size:clamp(34px,5vw,52px);font-weight:700;color:var(--navy);
+  letter-spacing:-0.02em;line-height:1;
+}
+.stat-suffix{
+  font-size:clamp(34px,5vw,52px);font-weight:700;color:var(--navy);
+  letter-spacing:-0.02em;line-height:1;margin-left:-2px;
+}
+.stat-label{color:var(--text-dim);font-size:14px;margin-top:8px}
 .t-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
 .t-card{
   background:var(--bg);
