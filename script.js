@@ -1,3 +1,17 @@
+const heroVideo = document.getElementById('heroVideo');
+if (heroVideo) {
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  const tryPlay = () => heroVideo.play().catch(() => {});
+  tryPlay();
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryPlay();
+  });
+  ['touchstart', 'click', 'scroll'].forEach(evt => {
+    document.addEventListener(evt, tryPlay, { once: true, passive: true });
+  });
+}
+
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
 
