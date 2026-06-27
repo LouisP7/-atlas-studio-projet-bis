@@ -118,7 +118,6 @@ if (statNums.length) {
 const processTrack = document.getElementById('processTrack');
 if (processTrack) {
   const processScroll = document.getElementById('processScroll');
-  const progressFill = document.getElementById('processProgressFill');
   const rows = Array.from(processTrack.children);
   const dots = Array.from(document.querySelectorAll('.process-dot'));
   const slideCount = rows.length;
@@ -145,10 +144,6 @@ if (processTrack) {
     const progress = Math.min(1, Math.max(0, scrolled / total));
     const index = Math.min(slideCount - 1, Math.floor(progress * slideCount));
     goTo(index);
-    if (progressFill) {
-      const fillPct = (current / (slideCount - 1)) * 100;
-      progressFill.style.width = `${fillPct}%`;
-    }
   };
 
   dots.forEach((dot, i) => {
