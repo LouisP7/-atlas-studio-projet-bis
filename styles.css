@@ -440,15 +440,100 @@ section h2{
   content:"";position:absolute;inset:0;
   background:radial-gradient(circle at 30% 30%, rgba(80,110,220,0.3), transparent 60%);
 }
-.process-icon-badge{
-  width:104px;height:104px;border-radius:26px;
-  display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(155deg, var(--navy-soft), var(--navy));
-  box-shadow:0 16px 32px -10px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
-  color:#fff;
-  position:relative;z-index:1;
+.process-scene{position:relative;z-index:1;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+
+/* Floating chip: glassy pill that hovers outside each window, foreground parallax layer */
+.process-chip{
+  position:absolute;z-index:2;
+  padding:9px 16px;border-radius:999px;
+  font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap;
+  background:rgba(20,28,55,0.7);
+  border:1px solid rgba(255,255,255,0.14);
+  backdrop-filter:blur(10px);
+  box-shadow:0 14px 30px -10px rgba(0,0,0,0.5);
+  will-change:transform;
 }
-.process-icon{width:52px;height:52px}
+.process-chip-1{top:8%;right:4%}
+.process-chip-2{bottom:10%;left:2%}
+.process-chip-3{top:10%;left:4%}
+
+/* Scene 1 — video call mockup */
+.process-scene-call{gap:14px;padding:18px}
+.call-tile{
+  width:104px;height:104px;border-radius:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(165deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.12);
+}
+.call-avatar{width:42px;height:42px;border-radius:50%}
+.call-avatar-a{background:linear-gradient(155deg,#7aa6ff,#3d5fd6)}
+.call-avatar-b{background:linear-gradient(155deg,#8fd6ff,#4f7df0)}
+.call-label{font-size:11px;color:rgba(255,255,255,0.6);font-weight:600}
+.call-timer{
+  position:absolute;top:14px;left:14px;
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:700;color:#fff;
+  background:rgba(0,0,0,0.35);padding:5px 10px;border-radius:999px;
+}
+.call-dot{width:7px;height:7px;border-radius:50%;background:#ff6159;animation:process-pulse 1.6s ease-in-out infinite}
+
+/* Scene 2 — design / build mockup */
+.process-scene-build{flex-direction:column;align-items:stretch;padding:16px;gap:10px}
+.build-toolbar{display:flex;gap:6px}
+.build-toolbar span{width:18px;height:18px;border-radius:6px;background:rgba(255,255,255,0.1)}
+.build-toolbar span:first-child{background:linear-gradient(155deg,#7aa6ff,#3d5fd6)}
+.build-canvas{
+  position:relative;flex:1;border-radius:12px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  padding:14px;display:flex;flex-direction:column;gap:10px;
+}
+.build-block{display:block;border-radius:6px;background:rgba(255,255,255,0.12)}
+.build-block-header{height:16px;width:60%;background:linear-gradient(90deg,#8fd6ff,#4f7df0)}
+.build-block-img{height:34px;width:100%;border-radius:8px;background:rgba(255,255,255,0.08)}
+.build-block-line{height:8px}
+.build-block-line-1{width:85%}
+.build-block-line-2{width:55%}
+.build-block-btn{height:18px;width:38%;border-radius:999px;background:linear-gradient(90deg,#7aa6ff,#3d5fd6)}
+.build-cursor{
+  position:absolute;width:14px;height:14px;
+  border:2px solid #fff;border-radius:3px 50% 50% 50%;transform:rotate(-15deg);
+  bottom:18px;right:22px;
+  animation:process-cursor-move 3.2s ease-in-out infinite;
+}
+@keyframes process-cursor-move{
+  0%,100%{transform:translate(0,0) rotate(-15deg)}
+  50%{transform:translate(-18px,-14px) rotate(-15deg)}
+}
+
+/* Scene 3 — launch / success mockup */
+.process-scene-launch{flex-direction:column;gap:14px}
+.launch-burst{
+  position:absolute;width:90px;height:90px;border-radius:50%;
+  background:radial-gradient(circle, rgba(143,214,255,0.35), transparent 70%);
+  animation:process-pulse-ring 2.4s ease-out infinite;
+}
+.launch-check{
+  position:relative;width:72px;height:72px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(155deg,#28c840,#1a9e30);
+  color:#fff;box-shadow:0 16px 32px -10px rgba(0,0,0,0.5);
+}
+.launch-url{
+  position:relative;display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);
+  background:rgba(0,0,0,0.3);padding:6px 14px;border-radius:999px;
+}
+.launch-dot{width:7px;height:7px;border-radius:50%;background:#28c840;animation:process-pulse 1.6s ease-in-out infinite}
+
+@keyframes process-pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.4;transform:scale(0.8)}
+}
+@keyframes process-pulse-ring{
+  0%{transform:scale(0.6);opacity:0.7}
+  100%{transform:scale(1.6);opacity:0}
+}
+
 .process-row-text{flex:1;opacity:0;position:relative;z-index:1}
 .process-row.is-active .process-row-text{animation:process-step-in .7s cubic-bezier(.16,1,.3,1) .15s forwards}
 .process-row.is-active .process-row-media{animation:process-step-in .7s cubic-bezier(.16,1,.3,1) forwards}
@@ -564,8 +649,8 @@ section h2{
   .process-row-media{width:100%;aspect-ratio:16/10}
   .process-row-text p{max-width:none}
   .process-row-watermark{font-size:90px;top:-22px}
-  .process-icon-badge{width:84px;height:84px;border-radius:22px}
-  .process-icon{width:42px;height:42px}
+  .call-tile{width:84px;height:84px}
+  .process-chip{font-size:12px;padding:7px 13px}
   .process-dots{gap:28px}
   .process-progress-track{left:18px;right:18px}
 }

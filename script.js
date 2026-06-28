@@ -126,7 +126,7 @@ if (processTrack) {
 
   const bgBlobs = Array.from(document.querySelectorAll('.process-bg-blob'));
   const watermarks = Array.from(document.querySelectorAll('.process-row-watermark'));
-  const iconBadges = Array.from(document.querySelectorAll('.process-icon-badge'));
+  const iconBadges = Array.from(document.querySelectorAll('.process-chip'));
 
   const setActive = (index) => {
     if (index === current) return;
