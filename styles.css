@@ -326,12 +326,32 @@ section h2{
   padding-top:110px;box-sizing:border-box;
   overflow:hidden;
 }
-.process-pin .container{width:100%}
+.process-pin .container{width:100%;position:relative;z-index:1}
 .process::before{
   content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);
   width:900px;height:500px;
   background:radial-gradient(circle, rgba(60,90,200,0.18), transparent 65%);
   pointer-events:none;
+}
+
+/* Layered parallax backdrop: each blob drifts at its own speed via JS */
+.process-bg-layer{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.process-bg-blob{
+  position:absolute;border-radius:50%;
+  filter:blur(60px);
+  will-change:transform;
+}
+.process-bg-blob-1{
+  width:520px;height:520px;top:-12%;left:-8%;
+  background:radial-gradient(circle, rgba(79,125,240,0.28), transparent 70%);
+}
+.process-bg-blob-2{
+  width:420px;height:420px;bottom:-15%;right:-6%;
+  background:radial-gradient(circle, rgba(143,214,255,0.18), transparent 70%);
+}
+.process-bg-blob-3{
+  width:300px;height:300px;top:35%;right:18%;
+  background:radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
 }
 .process .section-tag{color:rgba(255,255,255,0.6);position:relative;z-index:1}
 .process-title{margin-bottom:56px;color:#fff;position:relative;z-index:1}

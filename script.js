@@ -124,6 +124,10 @@ if (processTrack) {
   const slideCount = rows.length;
   let current = -1;
 
+  const bgBlobs = Array.from(document.querySelectorAll('.process-bg-blob'));
+  const watermarks = Array.from(document.querySelectorAll('.process-row-watermark'));
+  const iconBadges = Array.from(document.querySelectorAll('.process-icon-badge'));
+
   const setActive = (index) => {
     if (index === current) return;
     current = index;
@@ -145,6 +149,19 @@ if (processTrack) {
 
     // Continuous horizontal parallax: the track tracks scroll 1:1 instead of snapping between slides.
     processTrack.style.transform = `translateX(-${progress * (slideCount - 1) * 100}%)`;
+
+    // Layered parallax: each depth layer moves at its own speed off the same progress value.
+    bgBlobs.forEach((blob, i) => {
+      const speed = 60 + i * 40;
+      const drift = (progress - 0.5) * speed;
+      blob.style.transform = `translate3d(${drift}px, ${drift * 0.5}px, 0)`;
+    });
+    watermarks.forEach((mark) => {
+      mark.style.transform = `translateX(${(progress - 0.5) * -30}px)`;
+    });
+    iconBadges.forEach((badge) => {
+      badge.style.transform = `translateX(${(progress - 0.5) * 50}px)`;
+    });
 
     const index = Math.min(slideCount - 1, Math.round(progress * (slideCount - 1)));
     setActive(index);
