@@ -124,10 +124,9 @@ if (processTrack) {
   const slideCount = rows.length;
   let current = -1;
 
-  const goTo = (index) => {
+  const setActive = (index) => {
     if (index === current) return;
     current = index;
-    processTrack.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
     rows.forEach((row, i) => {
       row.classList.remove('is-active');
@@ -143,11 +142,14 @@ if (processTrack) {
     const total = rect.height - window.innerHeight;
     const scrolled = -rect.top;
     const progress = Math.min(1, Math.max(0, scrolled / total));
-    const index = Math.min(slideCount - 1, Math.floor(progress * slideCount));
-    goTo(index);
+
+    // Continuous horizontal parallax: the track tracks scroll 1:1 instead of snapping between slides.
+    processTrack.style.transform = `translateX(-${progress * (slideCount - 1) * 100}%)`;
+
+    const index = Math.min(slideCount - 1, Math.round(progress * (slideCount - 1)));
+    setActive(index);
     if (progressFill) {
-      const fillPct = (current / (slideCount - 1)) * 100;
-      progressFill.style.width = `${fillPct}%`;
+      progressFill.style.width = `${progress * 100}%`;
     }
   };
 
@@ -155,7 +157,7 @@ if (processTrack) {
     dot.addEventListener('click', () => {
       const rect = processScroll.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
-      const targetY = window.scrollY + rect.top + (i / slideCount) * total + 10;
+      const targetY = window.scrollY + rect.top + (i / (slideCount - 1)) * total + 10;
       window.scrollTo({ top: targetY, behavior: 'smooth' });
     });
   });
