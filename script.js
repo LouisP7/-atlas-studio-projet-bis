@@ -115,29 +115,31 @@ if (statNums.length) {
   statNums.forEach(el => statObserver.observe(el));
 }
 
-const processTrack = document.getElementById('processTrack');
-if (processTrack) {
+const processStack = document.getElementById('processStack');
+if (processStack) {
   const processScroll = document.getElementById('processScroll');
   const progressFill = document.getElementById('processProgressFill');
-  const rows = Array.from(processTrack.children);
+  const decks = Array.from(processStack.children);
+  const texts = Array.from(document.querySelectorAll('#processTextStack .process-row-text'));
   const dots = Array.from(document.querySelectorAll('.process-dot'));
-  const slideCount = rows.length;
+  const slideCount = decks.length;
   let current = -1;
 
   const bgBlobs = Array.from(document.querySelectorAll('.process-bg-blob'));
-  const watermarks = Array.from(document.querySelectorAll('.process-row-watermark'));
-  const iconBadges = Array.from(document.querySelectorAll('.process-chip'));
+  const chips = Array.from(document.querySelectorAll('.process-chip'));
+
+  const depthClasses = ['deck-front', 'deck-mid', 'deck-back'];
 
   const setActive = (index) => {
     if (index === current) return;
     current = index;
     dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
-    rows.forEach((row, i) => {
-      row.classList.remove('is-active');
-      if (i === current) {
-        void row.offsetWidth;
-        row.classList.add('is-active');
-      }
+    texts.forEach((text, i) => text.classList.toggle('is-active', i === current));
+    // Auto-cycling deck: reorder which card is front/mid/back as the active step changes.
+    decks.forEach((deck, i) => {
+      const depth = (i - current + slideCount) % slideCount;
+      deck.classList.remove(...depthClasses);
+      deck.classList.add(depthClasses[depth]);
     });
   };
 
@@ -148,26 +150,18 @@ if (processTrack) {
     const progress = Math.min(1, Math.max(0, scrolled / total));
 
     const index = Math.min(slideCount - 1, Math.round(progress * (slideCount - 1)));
+    setActive(index);
 
-    // Snap to the full step instead of tracking scroll continuously, so each step
-    // is always shown whole (no partial/cut-off view) with a smooth eased slide between steps.
-    processTrack.style.transform = `translateX(-${index * 100}%)`;
-
-    // Layered parallax: each depth layer moves at its own speed off the same progress value,
-    // from slowest (farthest back) to fastest (closest to the viewer).
+    // Layered parallax: background blobs and the front card's chip drift at their own speed.
     const swing = progress - 0.5;
     bgBlobs.forEach((blob, i) => {
       const speed = 140 + i * 90;
       blob.style.transform = `translate3d(${swing * speed}px, ${swing * speed * 0.4}px, 0)`;
     });
-    watermarks.forEach((mark) => {
-      mark.style.transform = `translateX(${swing * -90}px)`;
-    });
-    iconBadges.forEach((badge) => {
-      badge.style.transform = `translate3d(${swing * 130}px, ${swing * -40}px, 0)`;
+    chips.forEach((chip) => {
+      chip.style.transform = `translate3d(${swing * 70}px, ${swing * -24}px, 0)`;
     });
 
-    setActive(index);
     if (progressFill) {
       progressFill.style.width = `${progress * 100}%`;
     }
