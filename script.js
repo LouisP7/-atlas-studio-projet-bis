@@ -147,8 +147,11 @@ if (processTrack) {
     const scrolled = -rect.top;
     const progress = Math.min(1, Math.max(0, scrolled / total));
 
-    // Continuous horizontal parallax: the track tracks scroll 1:1 instead of snapping between slides.
-    processTrack.style.transform = `translateX(-${progress * (slideCount - 1) * 100}%)`;
+    const index = Math.min(slideCount - 1, Math.round(progress * (slideCount - 1)));
+
+    // Snap to the full step instead of tracking scroll continuously, so each step
+    // is always shown whole (no partial/cut-off view) with a smooth eased slide between steps.
+    processTrack.style.transform = `translateX(-${index * 100}%)`;
 
     // Layered parallax: each depth layer moves at its own speed off the same progress value,
     // from slowest (farthest back) to fastest (closest to the viewer).
@@ -164,7 +167,6 @@ if (processTrack) {
       badge.style.transform = `translate3d(${swing * 130}px, ${swing * -40}px, 0)`;
     });
 
-    const index = Math.min(slideCount - 1, Math.round(progress * (slideCount - 1)));
     setActive(index);
     if (progressFill) {
       progressFill.style.width = `${progress * 100}%`;
