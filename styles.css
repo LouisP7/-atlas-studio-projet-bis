@@ -423,10 +423,33 @@ section h2{
   background:linear-gradient(165deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
   border:1px solid rgba(255,255,255,0.12);
   box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);
-  position:relative;z-index:1;overflow:hidden;
+  position:relative;z-index:2;overflow:hidden;
   display:flex;flex-direction:column;
   transition:transform .45s ease, box-shadow .45s ease;
 }
+
+/* Fanned card stack behind each window, like a deck of recognition cards */
+.process-stack-card{
+  position:absolute;inset:0;border-radius:20px;
+  box-shadow:0 20px 40px -16px rgba(0,0,0,0.45);
+  will-change:transform;
+}
+.process-stack-card-1{z-index:0;animation:process-stack-sway-1 7s ease-in-out infinite}
+.process-stack-card-2{z-index:1;animation:process-stack-sway-2 7s ease-in-out infinite}
+@keyframes process-stack-sway-1{
+  0%,100%{transform:rotate(-8deg) translate(-12px,18px)}
+  50%{transform:rotate(-10deg) translate(-14px,12px)}
+}
+@keyframes process-stack-sway-2{
+  0%,100%{transform:rotate(6deg) translate(14px,12px)}
+  50%{transform:rotate(8deg) translate(16px,6px)}
+}
+.process-row:nth-child(1) .process-stack-card-1{background:linear-gradient(160deg,#8fd6ff,#4f7df0)}
+.process-row:nth-child(1) .process-stack-card-2{background:linear-gradient(160deg,#4f7df0,#3d5fd6)}
+.process-row:nth-child(2) .process-stack-card-1{background:linear-gradient(160deg,#c4b5fd,#7c5cff)}
+.process-row:nth-child(2) .process-stack-card-2{background:linear-gradient(160deg,#7c5cff,#5b3fd6)}
+.process-row:nth-child(3) .process-stack-card-1{background:linear-gradient(160deg,#5eead4,#14b8a6)}
+.process-row:nth-child(3) .process-stack-card-2{background:linear-gradient(160deg,#14b8a6,#0d9488)}
 .process-row:hover .process-window{transform:translateY(-6px);box-shadow:0 36px 70px -18px rgba(0,0,0,0.65)}
 .process-window-bar{
   display:flex;gap:7px;align-items:center;
