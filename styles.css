@@ -326,7 +326,7 @@ section h2{
   padding-top:110px;box-sizing:border-box;
   overflow:hidden;
 }
-.process-pin .container{width:100%;position:relative;z-index:1}
+.process-pin .container{width:100%;position:relative;z-index:1;max-width:1300px}
 .process::before{
   content:"";position:absolute;top:-200px;left:50%;transform:translateX(-50%);
   width:900px;height:500px;
@@ -367,7 +367,7 @@ section h2{
 }
 .process-row{
   flex:0 0 100%;
-  display:flex;align-items:center;gap:72px;
+  display:flex;align-items:center;gap:84px;
 }
 .process-row:nth-child(even){flex-direction:row-reverse}
 
@@ -395,15 +395,15 @@ section h2{
 .process-dot.is-active{background:#fff;color:var(--navy);border-color:#fff;transform:scale(1.1)}
 
 .process-row-media{
-  flex:1;
-  aspect-ratio:4/3;
+  flex:1.15;
+  aspect-ratio:5/4;
   position:relative;
   display:flex;align-items:center;justify-content:center;
   opacity:0;
 }
 .process-row-watermark{
-  position:absolute;top:-34px;left:-14px;
-  font-size:140px;font-weight:800;letter-spacing:-0.04em;
+  position:absolute;top:-44px;left:-18px;
+  font-size:170px;font-weight:800;letter-spacing:-0.04em;
   color:transparent;
   -webkit-text-stroke:1.5px rgba(255,255,255,0.1);
   z-index:0;
@@ -445,8 +445,8 @@ section h2{
 /* Floating chip: glassy pill that hovers outside each window, foreground parallax layer */
 .process-chip{
   position:absolute;z-index:2;
-  padding:9px 16px;border-radius:999px;
-  font-size:13.5px;font-weight:600;color:#fff;white-space:nowrap;
+  padding:10px 18px;border-radius:999px;
+  font-size:14.5px;font-weight:600;color:#fff;white-space:nowrap;
   background:rgba(20,28,55,0.7);
   border:1px solid rgba(255,255,255,0.14);
   backdrop-filter:blur(10px);
@@ -458,70 +458,70 @@ section h2{
 .process-chip-3{top:10%;left:4%}
 
 /* Scene 1 — video call mockup */
-.process-scene-call{gap:14px;padding:18px}
+.process-scene-call{gap:18px;padding:24px}
 .call-tile{
-  width:104px;height:104px;border-radius:16px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  width:128px;height:128px;border-radius:18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
   background:linear-gradient(165deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
   border:1px solid rgba(255,255,255,0.12);
 }
-.call-avatar{width:42px;height:42px;border-radius:50%}
+.call-avatar{width:52px;height:52px;border-radius:50%}
 .call-avatar-a{background:linear-gradient(155deg,#7aa6ff,#3d5fd6)}
 .call-avatar-b{background:linear-gradient(155deg,#8fd6ff,#4f7df0)}
-.call-label{font-size:11px;color:rgba(255,255,255,0.6);font-weight:600}
+.call-label{font-size:12.5px;color:rgba(255,255,255,0.6);font-weight:600}
 .call-timer{
-  position:absolute;top:14px;left:14px;
+  position:absolute;top:18px;left:18px;
   display:flex;align-items:center;gap:6px;
-  font-size:12px;font-weight:700;color:#fff;
-  background:rgba(0,0,0,0.35);padding:5px 10px;border-radius:999px;
+  font-size:13px;font-weight:700;color:#fff;
+  background:rgba(0,0,0,0.35);padding:6px 12px;border-radius:999px;
 }
 .call-dot{width:7px;height:7px;border-radius:50%;background:#ff6159;animation:process-pulse 1.6s ease-in-out infinite}
 
 /* Scene 2 — design / build mockup */
-.process-scene-build{flex-direction:column;align-items:stretch;padding:16px;gap:10px}
-.build-toolbar{display:flex;gap:6px}
-.build-toolbar span{width:18px;height:18px;border-radius:6px;background:rgba(255,255,255,0.1)}
+.process-scene-build{flex-direction:column;align-items:stretch;padding:22px;gap:14px}
+.build-toolbar{display:flex;gap:8px}
+.build-toolbar span{width:22px;height:22px;border-radius:7px;background:rgba(255,255,255,0.1)}
 .build-toolbar span:first-child{background:linear-gradient(155deg,#7aa6ff,#3d5fd6)}
 .build-canvas{
-  position:relative;flex:1;border-radius:12px;
+  position:relative;flex:1;border-radius:14px;
   background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
-  padding:14px;display:flex;flex-direction:column;gap:10px;
+  padding:20px;display:flex;flex-direction:column;gap:14px;
 }
-.build-block{display:block;border-radius:6px;background:rgba(255,255,255,0.12)}
-.build-block-header{height:16px;width:60%;background:linear-gradient(90deg,#8fd6ff,#4f7df0)}
-.build-block-img{height:34px;width:100%;border-radius:8px;background:rgba(255,255,255,0.08)}
-.build-block-line{height:8px}
+.build-block{display:block;border-radius:7px;background:rgba(255,255,255,0.12)}
+.build-block-header{height:20px;width:60%;background:linear-gradient(90deg,#8fd6ff,#4f7df0)}
+.build-block-img{height:48px;width:100%;border-radius:10px;background:rgba(255,255,255,0.08)}
+.build-block-line{height:10px}
 .build-block-line-1{width:85%}
 .build-block-line-2{width:55%}
-.build-block-btn{height:18px;width:38%;border-radius:999px;background:linear-gradient(90deg,#7aa6ff,#3d5fd6)}
+.build-block-btn{height:22px;width:38%;border-radius:999px;background:linear-gradient(90deg,#7aa6ff,#3d5fd6)}
 .build-cursor{
-  position:absolute;width:14px;height:14px;
+  position:absolute;width:16px;height:16px;
   border:2px solid #fff;border-radius:3px 50% 50% 50%;transform:rotate(-15deg);
-  bottom:18px;right:22px;
+  bottom:24px;right:28px;
   animation:process-cursor-move 3.2s ease-in-out infinite;
 }
 @keyframes process-cursor-move{
   0%,100%{transform:translate(0,0) rotate(-15deg)}
-  50%{transform:translate(-18px,-14px) rotate(-15deg)}
+  50%{transform:translate(-22px,-18px) rotate(-15deg)}
 }
 
 /* Scene 3 — launch / success mockup */
-.process-scene-launch{flex-direction:column;gap:14px}
+.process-scene-launch{flex-direction:column;gap:18px}
 .launch-burst{
-  position:absolute;width:90px;height:90px;border-radius:50%;
+  position:absolute;width:112px;height:112px;border-radius:50%;
   background:radial-gradient(circle, rgba(143,214,255,0.35), transparent 70%);
   animation:process-pulse-ring 2.4s ease-out infinite;
 }
 .launch-check{
-  position:relative;width:72px;height:72px;border-radius:50%;
+  position:relative;width:88px;height:88px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   background:linear-gradient(155deg,#28c840,#1a9e30);
   color:#fff;box-shadow:0 16px 32px -10px rgba(0,0,0,0.5);
 }
 .launch-url{
   position:relative;display:flex;align-items:center;gap:8px;
-  font-size:13px;font-weight:600;color:rgba(255,255,255,0.85);
-  background:rgba(0,0,0,0.3);padding:6px 14px;border-radius:999px;
+  font-size:14px;font-weight:600;color:rgba(255,255,255,0.85);
+  background:rgba(0,0,0,0.3);padding:7px 16px;border-radius:999px;
 }
 .launch-dot{width:7px;height:7px;border-radius:50%;background:#28c840;animation:process-pulse 1.6s ease-in-out infinite}
 
@@ -543,11 +543,11 @@ section h2{
 }
 .process-num{
   display:inline-block;
-  font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
-  color:#8fd6ff;margin-bottom:16px;
+  font-weight:700;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;
+  color:#8fd6ff;margin-bottom:18px;
 }
-.process-row-text h3{font-size:clamp(24px,2.8vw,32px);font-weight:700;color:#fff;margin-bottom:14px;letter-spacing:-0.01em}
-.process-row-text p{color:rgba(255,255,255,0.55);font-size:16.5px;line-height:1.6;max-width:420px}
+.process-row-text h3{font-size:clamp(26px,3.2vw,38px);font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:-0.01em}
+.process-row-text p{color:rgba(255,255,255,0.55);font-size:17.5px;line-height:1.65;max-width:460px}
 
 /* Testimonials */
 .testimonials{padding:100px 0;text-align:center}
