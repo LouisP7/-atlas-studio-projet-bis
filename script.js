@@ -150,17 +150,18 @@ if (processTrack) {
     // Continuous horizontal parallax: the track tracks scroll 1:1 instead of snapping between slides.
     processTrack.style.transform = `translateX(-${progress * (slideCount - 1) * 100}%)`;
 
-    // Layered parallax: each depth layer moves at its own speed off the same progress value.
+    // Layered parallax: each depth layer moves at its own speed off the same progress value,
+    // from slowest (farthest back) to fastest (closest to the viewer).
+    const swing = progress - 0.5;
     bgBlobs.forEach((blob, i) => {
-      const speed = 60 + i * 40;
-      const drift = (progress - 0.5) * speed;
-      blob.style.transform = `translate3d(${drift}px, ${drift * 0.5}px, 0)`;
+      const speed = 140 + i * 90;
+      blob.style.transform = `translate3d(${swing * speed}px, ${swing * speed * 0.4}px, 0)`;
     });
     watermarks.forEach((mark) => {
-      mark.style.transform = `translateX(${(progress - 0.5) * -30}px)`;
+      mark.style.transform = `translateX(${swing * -90}px)`;
     });
     iconBadges.forEach((badge) => {
-      badge.style.transform = `translateX(${(progress - 0.5) * 50}px)`;
+      badge.style.transform = `translate3d(${swing * 130}px, ${swing * -40}px, 0)`;
     });
 
     const index = Math.min(slideCount - 1, Math.round(progress * (slideCount - 1)));
