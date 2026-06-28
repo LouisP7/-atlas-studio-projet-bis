@@ -118,10 +118,8 @@ if (statNums.length) {
 const processStack = document.getElementById('processStack');
 if (processStack) {
   const processScroll = document.getElementById('processScroll');
-  const progressFill = document.getElementById('processProgressFill');
   const decks = Array.from(processStack.children);
   const texts = Array.from(document.querySelectorAll('#processTextStack .process-row-text'));
-  const dots = Array.from(document.querySelectorAll('.process-dot'));
   const slideCount = decks.length;
   let current = -1;
 
@@ -133,7 +131,6 @@ if (processStack) {
   const setActive = (index) => {
     if (index === current) return;
     current = index;
-    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
     texts.forEach((text, i) => text.classList.toggle('is-active', i === current));
     // Auto-cycling deck: reorder which card is front/mid/back as the active step changes.
     decks.forEach((deck, i) => {
@@ -161,20 +158,7 @@ if (processStack) {
     chips.forEach((chip) => {
       chip.style.transform = `translate3d(${swing * 70}px, ${swing * -24}px, 0)`;
     });
-
-    if (progressFill) {
-      progressFill.style.width = `${progress * 100}%`;
-    }
   };
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      const rect = processScroll.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
-      const targetY = window.scrollY + rect.top + (i / (slideCount - 1)) * total + 10;
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
-    });
-  });
 
   window.addEventListener('scroll', updateFromScroll, { passive: true });
   updateFromScroll();

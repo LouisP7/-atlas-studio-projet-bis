@@ -362,34 +362,6 @@ section h2{
 .process-carousel{position:relative;z-index:1}
 .process-stage{display:flex;align-items:stretch;gap:72px;text-align:left}
 
-/* Progress: numbered steps connected by a fill-on-scroll line */
-.process-progress{margin-top:40px;position:relative;max-width:420px;margin-left:auto;margin-right:auto}
-.process-progress-track{
-  position:absolute;top:50%;left:13px;right:13px;
-  height:1.5px;border-radius:999px;
-  background:rgba(255,255,255,0.08);
-  transform:translateY(-50%);
-}
-.process-progress-fill{
-  height:100%;width:0%;border-radius:999px;
-  background:linear-gradient(90deg, #4f7df0, #8fd6ff);
-  box-shadow:0 0 10px rgba(143,214,255,0.5);
-  transition:width .3s ease;
-}
-.process-dots{display:flex;justify-content:space-between;position:relative}
-.process-dot{
-  width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,0.14);padding:0;
-  background:#0a1226;color:rgba(255,255,255,0.4);
-  font-size:10.5px;font-weight:700;letter-spacing:0.02em;
-  cursor:pointer;
-  transition:background .3s ease, color .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease;
-}
-.process-dot:hover{border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.7)}
-.process-dot.is-active{
-  background:#fff;color:var(--navy);border-color:#fff;transform:scale(1.18);
-  box-shadow:0 0 0 4px rgba(143,214,255,0.18);
-}
-
 .process-stack{
   flex:1;
   aspect-ratio:4/3;
@@ -640,8 +612,6 @@ section h2{
   .process-row-text p{max-width:none}
   .call-tile{width:84px;height:84px}
   .process-chip{font-size:12px;padding:7px 13px}
-  .process-dots{gap:28px}
-  .process-progress-track{left:13px;right:13px}
 }
 
 @media (max-width:768px){
