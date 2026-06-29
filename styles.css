@@ -606,13 +606,7 @@ section h2{
 .btn-block{width:100%}
 
 /* Footer */
-.footer{
-  padding:32px 0;background:var(--navy);position:relative;
-  background-image:linear-gradient(90deg, transparent, rgba(79,125,240,0.5), transparent);
-  background-size:100% 1px;
-  background-repeat:no-repeat;
-  background-position:top center;
-}
+.footer{padding:32px 0;background:var(--navy)}
 .footer-inner{
   display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:14px;
