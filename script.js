@@ -26,6 +26,40 @@ if (heroVideoSection) {
   updateHeroParallax();
 }
 
+// Services section glows drift with scroll for a subtle parallax backdrop.
+const spotlightSection = document.querySelector('.spotlight');
+const spotlightBlobs = document.querySelectorAll('.spotlight-blob');
+if (spotlightSection && spotlightBlobs.length) {
+  const updateSpotlightParallax = () => {
+    const rect = spotlightSection.getBoundingClientRect();
+    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+    const swing = center / window.innerHeight;
+    spotlightBlobs.forEach((blob, i) => {
+      const speed = 30 + i * 25;
+      blob.style.transform = `translate3d(${swing * speed * (i % 2 ? -1 : 1)}px, ${swing * speed}px, 0)`;
+    });
+  };
+  window.addEventListener('scroll', updateSpotlightParallax, { passive: true });
+  updateSpotlightParallax();
+}
+
+// Testimonials glows drift with scroll for a subtle parallax backdrop.
+const testimonialsSection = document.querySelector('.testimonials');
+const testimonialsBlobs = document.querySelectorAll('.testimonials-blob');
+if (testimonialsSection && testimonialsBlobs.length) {
+  const updateTestimonialsParallax = () => {
+    const rect = testimonialsSection.getBoundingClientRect();
+    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+    const swing = center / window.innerHeight;
+    testimonialsBlobs.forEach((blob, i) => {
+      const speed = 30 + i * 25;
+      blob.style.transform = `translate3d(${swing * speed * (i % 2 ? -1 : 1)}px, ${swing * speed}px, 0)`;
+    });
+  };
+  window.addEventListener('scroll', updateTestimonialsParallax, { passive: true });
+  updateTestimonialsParallax();
+}
+
 // CTA band glow drifts with scroll for a subtle parallax backdrop.
 const ctaBand = document.querySelector('.cta-band');
 const ctaBlob = document.querySelector('.cta-blob');
@@ -75,6 +109,7 @@ const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inne
 revealTargets.forEach(el => el.classList.add('reveal'));
 
 const spotlightSections = document.querySelectorAll('.spotlight-item');
+const blurRevealTargets = document.querySelectorAll('.blur-reveal');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -86,6 +121,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 revealTargets.forEach(el => observer.observe(el));
+blurRevealTargets.forEach(el => observer.observe(el));
 spotlightSections.forEach(el => observer.observe(el));
 
 const projectForm = document.getElementById('projectForm');
