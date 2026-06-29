@@ -323,7 +323,7 @@ section h2{
   position:sticky;top:0;
   height:100vh;
   display:flex;align-items:center;
-  padding-top:110px;box-sizing:border-box;
+  padding-top:30px;box-sizing:border-box;
   overflow:hidden;
 }
 .process-pin .container{width:100%;position:relative;z-index:1;max-width:980px}
