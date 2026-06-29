@@ -203,6 +203,19 @@ ul{list-style:none}
 .btn-ghost::after{content:" \203A";font-weight:400}
 .btn-ghost:hover{text-decoration:underline}
 
+/* Brand intro band, between hero and services */
+.brand-intro{padding:80px 0;text-align:center;background:var(--bg)}
+.brand-intro-eyebrow{
+  font-family:'Quicksand', sans-serif;
+  font-weight:700;font-size:15px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--navy);margin-bottom:14px;
+}
+.brand-intro-tagline{
+  font-family:'Quicksand', sans-serif;
+  font-weight:500;font-size:18px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text-dim);
+}
+
 /* Section heading shared */
 .section-tag{
   color:var(--text-dim);font-weight:600;font-size:14px;
