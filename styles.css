@@ -22,7 +22,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:hidden;width:100%}
+html{scroll-behavior:smooth}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
   background-color:var(--bg);
@@ -324,7 +324,7 @@ section h2{
 .spotlight-visual-icon svg{width:28px;height:28px}
 
 /* Process / steps */
-.process{text-align:center;background:var(--bg);position:relative;overflow:hidden}
+.process{text-align:center;background:var(--bg);position:relative}
 .process-scroll{position:relative;height:340vh}
 .process-pin{
   position:sticky;top:0;
@@ -336,7 +336,7 @@ section h2{
 .process-pin .container{width:100%;position:relative;z-index:1;max-width:980px}
 .process::before{
   content:"";position:absolute;top:40px;left:50%;transform:translateX(-50%);
-  width:900px;height:500px;
+  width:min(900px,100vw);height:500px;
   background:radial-gradient(circle, rgba(79,125,240,0.22), transparent 65%);
   pointer-events:none;
 }
