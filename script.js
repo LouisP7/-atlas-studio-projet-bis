@@ -12,6 +12,48 @@ if (heroVideo) {
   });
 }
 
+// Hero parallax: video drifts slower than scroll, logo drifts the other way for depth.
+const heroVideoSection = document.querySelector('.hero-video');
+if (heroVideoSection) {
+  const heroLogoEl = heroVideoSection.querySelector('.hero-logo');
+  const updateHeroParallax = () => {
+    const rect = heroVideoSection.getBoundingClientRect();
+    const progress = Math.min(1, Math.max(0, -rect.top / window.innerHeight));
+    heroVideo.style.transform = `scale(1.12) translateY(${progress * 60}px)`;
+    if (heroLogoEl) heroLogoEl.style.transform = `translateY(${progress * -30}px)`;
+  };
+  window.addEventListener('scroll', updateHeroParallax, { passive: true });
+  updateHeroParallax();
+}
+
+// 3D tilt: cards rotate toward the cursor and ease back on mouse leave.
+const tiltCards = document.querySelectorAll('.spotlight-item, .t-card');
+tiltCards.forEach((card) => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `perspective(1000px) rotateX(${py * -8}deg) rotateY(${px * 8}deg) translateY(-4px) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// CTA band glow drifts with scroll for a subtle parallax backdrop.
+const ctaBand = document.querySelector('.cta-band');
+const ctaBlob = document.querySelector('.cta-blob');
+if (ctaBand && ctaBlob) {
+  const updateCtaParallax = () => {
+    const rect = ctaBand.getBoundingClientRect();
+    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+    const swing = center / window.innerHeight;
+    ctaBlob.style.transform = `translate3d(${swing * 40}px, ${swing * 60}px, 0)`;
+  };
+  window.addEventListener('scroll', updateCtaParallax, { passive: true });
+  updateCtaParallax();
+}
+
 const menuToggle = document.getElementById('menuToggle');
 const menuPanel = document.getElementById('menuPanel');
 
