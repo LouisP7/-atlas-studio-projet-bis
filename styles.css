@@ -521,7 +521,7 @@ section h2{
 .process-row-text p{color:var(--text-dim);font-size:16.5px;line-height:1.6;max-width:420px}
 
 /* Testimonials */
-.testimonials{padding:100px 0;text-align:center;background:var(--bg-soft);position:relative;overflow:hidden}
+.testimonials{padding:100px 0;text-align:center;background:var(--bg);position:relative;overflow:hidden}
 .testimonials-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(10px);will-change:transform}
 .testimonials-blob-1{top:-200px;left:8%;width:480px;height:480px;background:radial-gradient(circle, rgba(79,125,240,0.14), transparent 70%)}
 .testimonials-blob-2{bottom:-220px;right:6%;width:480px;height:480px;background:radial-gradient(circle, rgba(79,125,240,0.1), transparent 70%)}
@@ -549,6 +549,7 @@ section h2{
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:30px 26px;
+  box-shadow:0 2px 10px rgba(8,18,38,0.04);
   transition:transform .3s ease, box-shadow .3s ease;
 }
 .t-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(8,18,38,0.08)}
