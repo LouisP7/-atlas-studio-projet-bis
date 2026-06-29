@@ -258,12 +258,11 @@ section h2{
   border:1px solid var(--border);
   border-radius:24px;
   padding:56px 40px;
-  transform-style:preserve-3d;
-  will-change:transform;
-  transition:border-color .3s ease, transform .15s ease-out, box-shadow .3s ease;
+  transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;
 }
 .spotlight-item:hover{
   border-color:transparent;
+  transform:translateY(-4px);
   box-shadow:0 24px 50px -16px rgba(15,30,80,0.25);
 }
 .spotlight-num{
@@ -537,17 +536,15 @@ section h2{
   letter-spacing:-0.02em;line-height:1;margin-left:-2px;
 }
 .stat-label{color:var(--text-dim);font-size:14px;margin-top:8px}
-.t-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left;perspective:1400px}
+.t-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
 .t-card{
   background:var(--bg);
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:30px 26px;
-  transform-style:preserve-3d;
-  will-change:transform;
-  transition:box-shadow .3s ease, transform .15s ease-out;
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-.t-card:hover{box-shadow:0 16px 40px rgba(8,18,38,0.08)}
+.t-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(8,18,38,0.08)}
 .t-stars{color:var(--navy);font-size:14px;margin-bottom:16px;letter-spacing:2px}
 .t-quote{font-size:15px;color:var(--text);margin-bottom:20px}
 .t-name{font-weight:600;font-size:14.5px}
