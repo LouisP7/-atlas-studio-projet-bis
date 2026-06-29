@@ -7,6 +7,8 @@
   --border:#e2e2e6;
   --text:#1d1d1f;
   --text-dim:#6e6e73;
+  --accent:#4f7df0;
+  --accent-light:#8fd6ff;
   --radius:20px;
   --max:1100px;
 }
@@ -195,8 +197,8 @@ ul{list-style:none}
   border:1px solid transparent;
   cursor:pointer;
 }
-.btn-primary{background:var(--navy);color:#fff}
-.btn-primary:hover{background:var(--navy-soft)}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 0 0 rgba(79,125,240,0)}
+.btn-primary:hover{background:var(--navy-soft);transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(79,125,240,0.45)}
 .btn-ghost{background:transparent;color:var(--navy);padding:12px 4px;font-weight:400}
 .btn-ghost::after{content:" \203A";font-weight:400}
 .btn-ghost:hover{text-decoration:underline}
@@ -272,6 +274,10 @@ section h2{
   border:1px solid rgba(8,18,38,0.08);
   font-size:13px;font-weight:600;color:var(--text-dim);
   margin-bottom:22px;
+  transition:background .3s ease, border-color .3s ease, color .3s ease;
+}
+.spotlight-item:hover .spotlight-num{
+  background:var(--accent);border-color:var(--accent);color:#fff;
 }
 .spotlight-content{max-width:380px;margin:0 auto}
 .spotlight-content h3{font-size:clamp(24px,3vw,30px);font-weight:700;letter-spacing:-0.02em;margin-bottom:12px;color:var(--navy)}
@@ -532,7 +538,7 @@ section h2{
   letter-spacing:-0.02em;line-height:1;
 }
 .stat-suffix{
-  font-size:clamp(34px,5vw,52px);font-weight:700;color:var(--navy);
+  font-size:clamp(34px,5vw,52px);font-weight:700;color:var(--accent);
   letter-spacing:-0.02em;line-height:1;margin-left:-2px;
 }
 .stat-label{color:var(--text-dim);font-size:14px;margin-top:8px}
@@ -600,7 +606,13 @@ section h2{
 .btn-block{width:100%}
 
 /* Footer */
-.footer{padding:32px 0;background:var(--navy)}
+.footer{
+  padding:32px 0;background:var(--navy);position:relative;
+  background-image:linear-gradient(90deg, transparent, rgba(79,125,240,0.5), transparent);
+  background-size:100% 1px;
+  background-repeat:no-repeat;
+  background-position:top center;
+}
 .footer-inner{
   display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:14px;
@@ -629,6 +641,7 @@ section h2{
 @media (max-width:768px){
   .hero-actions{flex-direction:column;gap:14px}
   .t-cards{grid-template-columns:1fr}
+  .stats-strip{flex-wrap:wrap;gap:32px;row-gap:28px}
   .footer-inner{flex-direction:column;text-align:center}
   .hero-logo{width:min(320px,70%)}
   .spotlight-title{font-size:38px}
