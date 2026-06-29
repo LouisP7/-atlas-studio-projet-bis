@@ -318,12 +318,12 @@ section h2{
 
 /* Process / steps */
 .process{text-align:center;background:#020617;position:relative}
-.process-scroll{position:relative;height:280vh}
+.process-scroll{position:relative;height:340vh}
 .process-pin{
   position:sticky;top:0;
   height:100vh;
   display:flex;align-items:flex-start;
-  padding-top:110px;box-sizing:border-box;
+  padding-top:140px;box-sizing:border-box;
   overflow:hidden;
 }
 .process-pin .container{width:100%;position:relative;z-index:1;max-width:980px}
