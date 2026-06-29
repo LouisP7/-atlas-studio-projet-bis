@@ -221,8 +221,8 @@ ul{list-style:none}
 }
 .brand-intro-tagline{
   font-family:'Rexton', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight:700;font-size:18px;letter-spacing:0.03em;text-transform:uppercase;
-  color:var(--text-dim);
+  font-weight:700;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;
+  color:var(--navy);
 }
 
 /* Section heading shared */
