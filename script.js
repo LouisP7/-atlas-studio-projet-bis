@@ -43,23 +43,6 @@ if (spotlightSection && spotlightBlobs.length) {
   updateSpotlightParallax();
 }
 
-// Testimonials glows drift with scroll for a subtle parallax backdrop.
-const testimonialsSection = document.querySelector('.testimonials');
-const testimonialsBlobs = document.querySelectorAll('.testimonials-blob');
-if (testimonialsSection && testimonialsBlobs.length) {
-  const updateTestimonialsParallax = () => {
-    const rect = testimonialsSection.getBoundingClientRect();
-    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-    const swing = center / window.innerHeight;
-    testimonialsBlobs.forEach((blob, i) => {
-      const speed = 30 + i * 25;
-      blob.style.transform = `translate3d(${swing * speed * (i % 2 ? -1 : 1)}px, ${swing * speed}px, 0)`;
-    });
-  };
-  window.addEventListener('scroll', updateTestimonialsParallax, { passive: true });
-  updateTestimonialsParallax();
-}
-
 // CTA band glow drifts with scroll for a subtle parallax backdrop.
 const ctaBand = document.querySelector('.cta-band');
 const ctaBlob = document.querySelector('.cta-blob');
@@ -105,10 +88,10 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-const revealTargets = document.querySelectorAll('.t-card, .cta-inner, .hero-inner, .spotlight-content, .process-carousel');
+const revealTargets = document.querySelectorAll('.cta-inner, .hero-inner, .service-text, .process-carousel');
 revealTargets.forEach(el => el.classList.add('reveal'));
 
-const spotlightSections = document.querySelectorAll('.spotlight-item');
+const spotlightSections = document.querySelectorAll('.service-row');
 const blurRevealTargets = document.querySelectorAll('.blur-reveal');
 
 const observer = new IntersectionObserver((entries) => {
@@ -228,20 +211,3 @@ if (processStack) {
   updateFromScroll();
 }
 
-const scrollFillTitle = document.getElementById('testimonialsTitle');
-if (scrollFillTitle) {
-  const words = scrollFillTitle.querySelectorAll('.word');
-  const updateScrollFill = () => {
-    const rect = scrollFillTitle.getBoundingClientRect();
-    const vh = window.innerHeight;
-    const start = vh * 0.85;
-    const end = vh * 0.35;
-    const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
-    const litCount = Math.round(progress * words.length);
-    words.forEach((word, i) => {
-      word.classList.toggle('lit', i < litCount);
-    });
-  };
-  window.addEventListener('scroll', updateScrollFill);
-  updateScrollFill();
-}
