@@ -322,8 +322,8 @@ section h2{
 .process-pin{
   position:sticky;top:0;
   height:100vh;
-  display:flex;align-items:center;
-  padding-top:30px;box-sizing:border-box;
+  display:flex;align-items:flex-start;
+  padding-top:110px;box-sizing:border-box;
   overflow:hidden;
 }
 .process-pin .container{width:100%;position:relative;z-index:1;max-width:980px}
