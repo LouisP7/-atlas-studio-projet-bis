@@ -76,9 +76,20 @@ if (ctaBand && ctaBlob) {
 
 const faqItems = document.querySelectorAll('.faq-item');
 faqItems.forEach(item => {
-  item.addEventListener('toggle', () => {
-    if (item.open) {
-      faqItems.forEach(other => { if (other !== item) other.open = false; });
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+  if (item.classList.contains('is-open')) {
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+  question.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('is-open');
+    faqItems.forEach(other => {
+      other.classList.remove('is-open');
+      other.querySelector('.faq-answer').style.maxHeight = null;
+    });
+    if (!wasOpen) {
+      item.classList.add('is-open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
     }
   });
 });
