@@ -183,7 +183,7 @@ ul{list-style:none}
   text-shadow:0 2px 24px rgba(0,0,0,0.35);
 }
 .hero-text-logo span:first-child{font-size:clamp(40px, 7.5vw, 88px)}
-.hero-text-logo span:last-child{font-size:clamp(17px, 3.3vw, 40px);letter-spacing:0.28em}
+.hero-text-logo span:last-child{font-size:clamp(14px, 2.8vw, 34px);letter-spacing:0.28em;margin-top:8px}
 .eyebrow{
   display:block;
   color:var(--text-dim);
