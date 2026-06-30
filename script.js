@@ -26,23 +26,6 @@ if (heroVideoSection) {
   updateHeroParallax();
 }
 
-// Services section glows drift with scroll for a subtle parallax backdrop.
-const spotlightSection = document.querySelector('.spotlight');
-const spotlightBlobs = document.querySelectorAll('.spotlight-blob');
-if (spotlightSection && spotlightBlobs.length) {
-  const updateSpotlightParallax = () => {
-    const rect = spotlightSection.getBoundingClientRect();
-    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-    const swing = center / window.innerHeight;
-    spotlightBlobs.forEach((blob, i) => {
-      const speed = 30 + i * 25;
-      blob.style.transform = `translate3d(${swing * speed * (i % 2 ? -1 : 1)}px, ${swing * speed}px, 0)`;
-    });
-  };
-  window.addEventListener('scroll', updateSpotlightParallax, { passive: true });
-  updateSpotlightParallax();
-}
-
 // FAQ glows drift with scroll for a subtle parallax backdrop.
 const testimonialsSection = document.querySelector('.faq');
 const testimonialsBlobs = document.querySelectorAll('.testimonials-blob');
