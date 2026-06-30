@@ -514,7 +514,7 @@ section h2{
 .process-row-text p{color:var(--text-dim);font-size:15.5px;line-height:1.6;max-width:420px}
 
 /* FAQ */
-.faq{padding:90px 0;text-align:center;background:var(--bg);position:relative;overflow:hidden}
+.faq{padding:90px 0 40px;text-align:center;background:var(--bg);position:relative;overflow:hidden}
 .faq h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;letter-spacing:-0.02em;margin-bottom:40px;color:var(--navy);position:relative;z-index:1}
 .testimonials-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(10px);will-change:transform}
 .testimonials-blob-1{top:40px;left:8%;width:520px;height:520px;background:radial-gradient(circle, rgba(79,125,240,0.3), transparent 70%)}
@@ -571,7 +571,7 @@ section h2{
 .stat-label{color:var(--text-dim);font-size:14px;margin-top:8px}
 
 /* CTA / contact */
-.cta-band{padding:90px 0;text-align:center;background:var(--bg)}
+.cta-band{padding:40px 0 90px;text-align:center;background:var(--bg)}
 .cta-card{
   position:relative;overflow:hidden;
   background:var(--bg-soft);
