@@ -175,14 +175,15 @@ ul{list-style:none}
   display:flex;flex-direction:column;align-items:center;
   font-family:'Rexton', -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight:700;
-  font-size:clamp(52px, 10vw, 120px);
   letter-spacing:0.12em;
   text-transform:uppercase;
   color:#fff;
-  line-height:1.05;
+  line-height:1.1;
   will-change:transform;
   text-shadow:0 2px 24px rgba(0,0,0,0.35);
 }
+.hero-text-logo span:first-child{font-size:clamp(52px, 10vw, 120px)}
+.hero-text-logo span:last-child{font-size:clamp(17px, 3.3vw, 40px);letter-spacing:0.28em}
 .eyebrow{
   display:block;
   color:var(--text-dim);
