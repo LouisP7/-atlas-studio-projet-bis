@@ -108,7 +108,7 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-const revealTargets = document.querySelectorAll('.faq-item, .cta-inner, .hero-inner, .spotlight-content, .process-carousel');
+const revealTargets = document.querySelectorAll('.faq-item, .cta-inner, .hero-inner, .spotlight-content, .process-carousel, .form-card, .start-aside-card');
 revealTargets.forEach(el => el.classList.add('reveal'));
 
 const spotlightSections = document.querySelectorAll('.spotlight-item');

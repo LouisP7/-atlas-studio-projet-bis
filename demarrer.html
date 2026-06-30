@@ -14,29 +14,42 @@
 <header class="header" id="header">
   <div class="header-inner">
     <a href="index.html" class="logo"><img src="assets/logo-crop.png" alt="Atlas Studio" class="logo-img"></a>
-    <nav class="nav" id="nav">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#temoignages">Avis</a>
+    <div class="header-actions">
       <a href="demarrer.html" class="nav-cta">Démarrer un projet</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="menu-panel" id="menuPanel">
+      <a href="index.html" class="menu-item"><span>Accueil</span>
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="index.html#services" class="menu-item"><span>Services</span>
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="index.html#etapes" class="menu-item"><span>Notre méthode</span>
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="index.html#faq" class="menu-item"><span>FAQ</span>
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </nav>
-    <button class="burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
 
 <main>
 
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1>Parlez-nous de <span class="highlight">votre projet.</span></h1>
-      <p class="hero-text">Remplissez ce court formulaire et nous vous répondons sous 24h avec les prochaines étapes.</p>
+  <section class="start-hero">
+    <div class="container start-hero-inner">
+      <span class="start-badge">Réponse sous 24h</span>
+      <h1>Parlez-nous de <span class="highlight">votre projet</span></h1>
+      <p class="hero-text">Remplissez ce court formulaire et nous revenons vers vous avec les prochaines étapes, sans engagement.</p>
     </div>
   </section>
 
   <section class="project-form-section">
-    <div class="container">
-      <form class="project-form" id="projectForm">
+    <div class="container start-grid">
+      <form class="project-form form-card" id="projectForm">
         <label>
           Nom complet
           <input type="text" name="name" placeholder="Votre nom" required>
@@ -60,6 +73,24 @@
         </label>
         <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
       </form>
+
+      <aside class="start-aside">
+        <div class="start-aside-card">
+          <h3>Ce qui se passe ensuite</h3>
+          <ul class="start-steps">
+            <li><span class="start-steps-num">1</span>On échange en visio sur votre activité et vos objectifs.</li>
+            <li><span class="start-steps-num">2</span>On conçoit et développe votre site sur-mesure.</li>
+            <li><span class="start-steps-num">3</span>Votre site est livré, testé et publié sous 3 à 5 jours.</li>
+          </ul>
+        </div>
+        <div class="start-aside-card start-aside-contact">
+          <h3>Vous préférez en parler directement ?</h3>
+          <div class="contact-direct">
+            <a href="tel:0695324068">📞 06 95 32 40 68</a>
+            <a href="mailto:contact@atlasstudio.fr">✉️ contact@atlasstudio.fr</a>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
