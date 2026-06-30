@@ -29,7 +29,7 @@ if (heroVideo) {
 // Hero parallax: video drifts slower than scroll, logo drifts the other way for depth.
 const heroVideoSection = document.querySelector('.hero-video');
 if (heroVideoSection) {
-  const heroLogoEl = heroVideoSection.querySelector('.hero-logo');
+  const heroLogoEl = heroVideoSection.querySelector('.hero-text-logo');
   const updateHeroParallax = () => {
     const rect = heroVideoSection.getBoundingClientRect();
     const progress = Math.min(1, Math.max(0, -rect.top / window.innerHeight));
