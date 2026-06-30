@@ -1,3 +1,17 @@
+// Coalesces scroll handlers to one rAF-batched call per frame to avoid jank from running
+// layout-reading + transform-writing work synchronously on every native scroll event.
+function onScroll(fn) {
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      fn();
+      ticking = false;
+    });
+  }, { passive: true });
+}
+
 const heroVideo = document.getElementById('heroVideo');
 if (heroVideo) {
   heroVideo.muted = true;
@@ -22,7 +36,7 @@ if (heroVideoSection) {
     heroVideo.style.transform = `scale(1.12) translateY(${progress * 60}px)`;
     if (heroLogoEl) heroLogoEl.style.transform = `translateY(${progress * -30}px)`;
   };
-  window.addEventListener('scroll', updateHeroParallax, { passive: true });
+  onScroll(updateHeroParallax);
   updateHeroParallax();
 }
 
@@ -39,7 +53,7 @@ if (testimonialsSection && testimonialsBlobs.length) {
       blob.style.transform = `translate3d(${swing * speed * (i % 2 ? -1 : 1)}px, ${swing * speed}px, 0)`;
     });
   };
-  window.addEventListener('scroll', updateTestimonialsParallax, { passive: true });
+  onScroll(updateTestimonialsParallax);
   updateTestimonialsParallax();
 }
 
@@ -53,7 +67,7 @@ if (ctaBand && ctaBlob) {
     const swing = center / window.innerHeight;
     ctaBlob.style.transform = `translate3d(${swing * 40}px, ${swing * 60}px, 0)`;
   };
-  window.addEventListener('scroll', updateCtaParallax, { passive: true });
+  onScroll(updateCtaParallax);
   updateCtaParallax();
 }
 
@@ -101,7 +115,7 @@ document.addEventListener('click', (e) => {
 
 const scrollProgress = document.getElementById('scrollProgress');
 const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
+onScroll(() => {
   const max = document.documentElement.scrollHeight - window.innerHeight;
   const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
   scrollProgress.style.width = pct + '%';
@@ -121,7 +135,7 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.15, rootMargin: '0px 0px 300px 0px' });
+}, { threshold: 0.15, rootMargin: '0px 0px 500px 0px' });
 
 revealTargets.forEach(el => observer.observe(el));
 blurRevealTargets.forEach(el => observer.observe(el));
@@ -227,7 +241,7 @@ if (processStack) {
     });
   };
 
-  window.addEventListener('scroll', updateFromScroll, { passive: true });
+  onScroll(updateFromScroll);
   updateFromScroll();
 }
 
