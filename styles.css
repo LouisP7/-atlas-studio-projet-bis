@@ -334,12 +334,6 @@ section h2{
   overflow:hidden;
 }
 .process-pin .container{width:100%;position:relative;z-index:1;max-width:980px}
-.process::before{
-  content:"";position:absolute;top:40px;left:50%;transform:translateX(-50%);
-  width:min(900px,100vw);height:500px;
-  background:radial-gradient(circle, rgba(79,125,240,0.22), transparent 65%);
-  pointer-events:none;
-}
 
 /* Layered parallax backdrop: each blob drifts at its own speed via JS */
 .process-bg-layer{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
